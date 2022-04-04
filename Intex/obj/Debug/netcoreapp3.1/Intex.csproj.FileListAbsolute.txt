@@ -41,7 +41,6 @@
 /Users/ben/Desktop/IS/INTEXII/Intex/Intex/obj/Debug/netcoreapp3.1/Razor/Views/Home/Summary.cshtml.g.cs
 C:\Users\tstee\Source\Repos\INTEXII\Intex\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\tstee\Source\Repos\INTEXII\Intex\bin\Debug\netcoreapp3.1\appsettings.json
-C:\Users\tstee\Source\Repos\INTEXII\Intex\bin\Debug\netcoreapp3.1\mono_crash.11a67480d0.0.json
 C:\Users\tstee\Source\Repos\INTEXII\Intex\bin\Debug\netcoreapp3.1\Intex.exe
 C:\Users\tstee\Source\Repos\INTEXII\Intex\bin\Debug\netcoreapp3.1\Intex.deps.json
 C:\Users\tstee\Source\Repos\INTEXII\Intex\bin\Debug\netcoreapp3.1\Intex.runtimeconfig.json
