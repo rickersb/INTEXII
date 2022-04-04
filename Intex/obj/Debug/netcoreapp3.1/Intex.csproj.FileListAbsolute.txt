@@ -36,3 +36,6 @@
 /Users/ben/Desktop/IS/INTEXII/Intex/Intex/obj/Debug/netcoreapp3.1/Intex.pdb
 /Users/ben/Desktop/IS/INTEXII/Intex/Intex/obj/Debug/netcoreapp3.1/Intex.genruntimeconfig.cache
 /Users/ben/Desktop/IS/INTEXII/Intex/Intex/obj/Debug/netcoreapp3.1/Intex.csproj.CopyComplete
+/Users/ben/Desktop/IS/INTEXII/Intex/Intex/obj/Debug/netcoreapp3.1/Razor/Views/Home/Graphs.cshtml.g.cs
+/Users/ben/Desktop/IS/INTEXII/Intex/Intex/obj/Debug/netcoreapp3.1/Razor/Views/Home/Predictor.cshtml.g.cs
+/Users/ben/Desktop/IS/INTEXII/Intex/Intex/obj/Debug/netcoreapp3.1/Razor/Views/Home/Summary.cshtml.g.cs

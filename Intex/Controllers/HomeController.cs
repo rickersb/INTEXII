@@ -17,8 +17,19 @@ namespace Intex.Controllers
         {
             _logger = logger;
         }
-
         public IActionResult Index()
+        {
+            return View();
+        }
+        public IActionResult Graphs()
+        {
+            return View();
+        }
+        public IActionResult Predictor()
+        {
+            return View();
+        }
+        public IActionResult Summary()
         {
             return View();
         }

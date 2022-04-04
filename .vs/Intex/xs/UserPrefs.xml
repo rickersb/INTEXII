@@ -1,11 +1,13 @@
 ﻿<Properties StartupConfiguration="{8280B15D-DA35-404F-A713-697A60370840}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Intex/Views/Home/Predictor.cshtml">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Intex/Views/Shared/_Layout.cshtml">
     <Files>
       <File FileName="Intex/Views/Home/Summary.cshtml" Line="3" Column="5" />
       <File FileName="Intex/Views/Home/Index.cshtml" />
       <File FileName="Intex/Views/Home/Privacy.cshtml" />
       <File FileName="Intex/Views/Home/Graphs.cshtml" />
       <File FileName="Intex/Views/Home/Predictor.cshtml" Line="6" Column="28" />
+      <File FileName="Intex/Controllers/HomeController.cs" Line="21" Column="10" />
+      <File FileName="Intex/Views/Shared/_Layout.cshtml" Line="25" Column="110" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -14,8 +16,9 @@
             <Node name="Intex" expanded="True">
               <Node name="Controllers" expanded="True" />
               <Node name="Views" expanded="True">
-                <Node name="Home" expanded="True">
-                  <Node name="Predictor.cshtml" selected="True" />
+                <Node name="Home" expanded="True" />
+                <Node name="Shared" expanded="True">
+                  <Node name="_Layout.cshtml" selected="True" />
                 </Node>
               </Node>
             </Node>
