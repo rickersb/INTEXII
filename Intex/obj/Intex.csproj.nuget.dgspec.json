@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tstee\\Source\\Repos\\INTEXII\\Intex\\Intex.csproj": {}
+    "C:\\Users\\tstee\\source\\repos\\INTEXII\\Intex\\Intex.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tstee\\Source\\Repos\\INTEXII\\Intex\\Intex.csproj": {
+    "C:\\Users\\tstee\\source\\repos\\INTEXII\\Intex\\Intex.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tstee\\Source\\Repos\\INTEXII\\Intex\\Intex.csproj",
+        "projectUniqueName": "C:\\Users\\tstee\\source\\repos\\INTEXII\\Intex\\Intex.csproj",
         "projectName": "Intex",
-        "projectPath": "C:\\Users\\tstee\\Source\\Repos\\INTEXII\\Intex\\Intex.csproj",
+        "projectPath": "C:\\Users\\tstee\\source\\repos\\INTEXII\\Intex\\Intex.csproj",
         "packagesPath": "C:\\Users\\tstee\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tstee\\Source\\Repos\\INTEXII\\Intex\\obj\\",
+        "outputPath": "C:\\Users\\tstee\\source\\repos\\INTEXII\\Intex\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\tstee\\AppData\\Roaming\\NuGet\\NuGet.Config",
