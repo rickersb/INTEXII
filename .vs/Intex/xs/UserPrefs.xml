@@ -1,0 +1,34 @@
+﻿<Properties StartupConfiguration="{8280B15D-DA35-404F-A713-697A60370840}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Intex/Views/Home/Predictor.cshtml">
+    <Files>
+      <File FileName="Intex/Views/Home/Summary.cshtml" Line="3" Column="5" />
+      <File FileName="Intex/Views/Home/Index.cshtml" />
+      <File FileName="Intex/Views/Home/Privacy.cshtml" />
+      <File FileName="Intex/Views/Home/Graphs.cshtml" />
+      <File FileName="Intex/Views/Home/Predictor.cshtml" Line="6" Column="28" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Intex" expanded="True">
+            <Node name="Intex" expanded="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="Home" expanded="True">
+                  <Node name="Predictor.cshtml" selected="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Intex PreferredExecutionTarget="/Applications/Brave Browser.app" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
