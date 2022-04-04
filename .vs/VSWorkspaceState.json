@@ -1,7 +1,12 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Intex",
+    "\\Intex\\Controllers",
+    "\\Intex\\Models",
+    "\\Intex\\Views",
+    "\\Intex\\Views\\Home"
   ],
-  "SelectedNode": "\\Intex.sln",
+  "SelectedNode": "\\Intex\\Controllers\\CrashesDbContext.cs",
   "PreviewInSolutionExplorer": false
 }

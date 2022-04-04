@@ -2,6 +2,8 @@
     ViewData["Title"] = "Home Page";
 }
 
+@model Crash
+
 <header class="jumbotron jumbotron-fluid">
     <div class="container-fluid text-center">
         <h1 class="display-3">Think & Drive</h1>
@@ -21,3 +23,8 @@
         efficient and affective decisions in driving laws.</p>
     </div>
 </div>
+
+
+<p>ID: @Model.CRASH_ID</p>
+<p>DATE: @Model.CRASH_DATETIME</p>
+<p>ROUTE: @Model.ROUTE</p>
