@@ -7,7 +7,7 @@
       <File FileName="Intex/Views/Home/Graphs.cshtml" />
       <File FileName="Intex/Views/Home/Predictor.cshtml" Line="6" Column="28" />
       <File FileName="Intex/Controllers/HomeController.cs" Line="21" Column="10" />
-      <File FileName="Intex/Views/Shared/_Layout.cshtml" Line="25" Column="110" />
+      <File FileName="Intex/Views/Shared/_Layout.cshtml" Line="7" Column="80" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -15,12 +15,12 @@
           <Node name="Intex" expanded="True">
             <Node name="Intex" expanded="True">
               <Node name="Controllers" expanded="True" />
+              <Node name="Models" expanded="True" />
               <Node name="Views" expanded="True">
                 <Node name="Home" expanded="True" />
-                <Node name="Shared" expanded="True">
-                  <Node name="_Layout.cshtml" selected="True" />
-                </Node>
+                <Node name="Shared" expanded="True" />
               </Node>
+              <Node name="mono_crash.11a67480d0.0.json" selected="True" />
             </Node>
           </Node>
         </State>
