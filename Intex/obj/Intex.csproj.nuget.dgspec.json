@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tstee\\Source\\Repos\\INTEXII\\Intex\\Intex.csproj": {}
+    "/Users/ben/Desktop/IS/INTEXII/Intex/Intex/Intex.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tstee\\Source\\Repos\\INTEXII\\Intex\\Intex.csproj": {
+    "/Users/ben/Desktop/IS/INTEXII/Intex/Intex/Intex.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tstee\\Source\\Repos\\INTEXII\\Intex\\Intex.csproj",
+        "projectUniqueName": "/Users/ben/Desktop/IS/INTEXII/Intex/Intex/Intex.csproj",
         "projectName": "Intex",
-        "projectPath": "C:\\Users\\tstee\\Source\\Repos\\INTEXII\\Intex\\Intex.csproj",
-        "packagesPath": "C:\\Users\\tstee\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tstee\\Source\\Repos\\INTEXII\\Intex\\obj\\",
+        "projectPath": "/Users/ben/Desktop/IS/INTEXII/Intex/Intex/Intex.csproj",
+        "packagesPath": "/Users/ben/.nuget/packages/",
+        "outputPath": "/Users/ben/Desktop/IS/INTEXII/Intex/Intex/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\tstee\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/ben/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -57,7 +55,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.405/RuntimeIdentifierGraph.json"
         }
       }
     }
