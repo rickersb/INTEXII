@@ -32,6 +32,7 @@ namespace Intex
                options.UseMySql(Configuration["ConnectionStrings:CrashesDbConnection"]);
 
            });
+            services.AddScoped<iCrashesRepository, EFCrashesRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
