@@ -6,23 +6,30 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Intex.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Intex.Controllers
 {
     public class HomeController : Controller
     {
-        private CrashesDbContext _context { get; set; }
+        private iCrashesRepository repo { get; set; }
 
 
-        public HomeController(CrashesDbContext temp)
+     
+        public HomeController(iCrashesRepository temp)
         {
-            _context = temp;
+            repo = temp;
         }
+
+   
         public IActionResult Index()
         {
-            var blah = _context.Crashes.Single(x => x.CRASH_ID == 10805517);
-            return View(blah);
+            /*var x = repo.Crashes
+                .ToList();*/
+
+            return View();
         }
+
         public IActionResult Graphs()
         {
             return View();
@@ -33,7 +40,9 @@ namespace Intex.Controllers
         }
         public IActionResult Summary()
         {
-            return View();
+            var x = repo.Crashes.ToList();
+
+            return View(x);
         }
 
         public IActionResult Privacy()
@@ -41,10 +50,8 @@ namespace Intex.Controllers
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+
+
     }
 }
+
