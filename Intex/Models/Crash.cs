@@ -22,6 +22,7 @@ namespace Intex.Models
         public int CITY_ID { get; set; }
         [Required]
         public int COUNTY_ID { get; set; }
+
         public int CRASH_SEVERITY_ID { get; set; }
         public bool WORK_ZONE_RELATED { get; set; }
         public bool PEDESTRIAN_INVOLVED { get; set; }
@@ -43,5 +44,7 @@ namespace Intex.Models
         public bool DROWSY_DRIVING { get; set; }
         public bool ROADWAY_DEPARTURE { get; set; }
 
+
+        public virtual ICollection<County> County { get; set; }
     }
 }

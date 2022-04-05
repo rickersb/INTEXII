@@ -26,8 +26,15 @@ using Intex.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "/Users/ben/Desktop/IS/INTEXII/Intex/Intex/Views/_ViewImports.cshtml"
+using Intex.Models.ViewModels;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"941685fbec51c5c5746d6cf5a22a0521ead76961", @"/Views/Home/Predictor.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"c10c51ea8281590ee73e4489d15d85e6a002cd9c", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"c15659c158884d1c79d65ace1950c7538a1be508", @"/Views/_ViewImports.cshtml")]
     public class Views_Home_Predictor : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998

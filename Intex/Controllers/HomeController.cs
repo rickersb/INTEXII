@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Intex.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Intex.Models.ViewModels;
 
 namespace Intex.Controllers
 {
@@ -38,9 +40,28 @@ namespace Intex.Controllers
         {
             return View();
         }
-        public IActionResult Summary()
+        public IActionResult Summary(int pageNum = 1)
         {
-            var x = repo.Crashes.ToList();
+            int pageSize = 15;
+
+            var x = new RecordsViewModel
+            {
+                Crashes = repo.Crashes
+                .Skip((pageNum - 1) * pageSize)
+                .Take(pageSize),
+
+                PageInfo = new PageInfo
+                {
+                    TotalNumRecords = repo.Crashes.Count(),
+                    RecordsPerPage = pageSize,
+                    CurrentPage = pageNum
+                }
+            };
+
+            
+
+           
+            
 
             return View(x);
         }

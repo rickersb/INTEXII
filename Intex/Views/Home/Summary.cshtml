@@ -3,10 +3,58 @@
     ViewData["Title"] = "Summary";
 }
 
-@model List<Crash>
-
+@model RecordsViewModel
 
 <h1>Crash Data</h1>
 
+<table class="table table-bordered table-striped">
+
+    <thead class="font-weight-bold">
+        <tr>
+            <td>Date</td>
+            <td>Route</td>
+            <td>Mile Point</td>
+            <td>Latitude</td>
+            <td>Longitude</td>
+            <td>Street Name</td>
+            <td>Severity Level</td>
 
 
+
+        </tr>
+    </thead>
+
+    <tbody>
+
+
+        @foreach (var x in Model.Crashes)
+        {
+            <tr>
+                <td>@x.CRASH_DATETIME</td>
+                <td>@x.ROUTE</td>
+                <td>@x.MILEPOINT</td>
+                <td>@x.LAT_UTM_Y</td>
+                <td>@x.LONG_UTM_X</td>
+                <td>@x.MAIN_ROAD_NAME</td>
+                <td>@x.CRASH_SEVERITY_ID</td>
+
+            </tr>
+
+        }
+
+
+
+
+    </tbody>
+
+</table>
+
+
+
+
+
+<br />
+<p>Page Number</p>
+<div page-model="@Model.PageInfo" page-action="Summary" page-class="btn"
+     page-class-normal="btn-outline-dark" page-class-selected="btn-primary" page-classes-enabled="true"
+     class="btn-group pull-right m-1"></div>
