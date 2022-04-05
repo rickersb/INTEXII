@@ -100,3 +100,4 @@ C:\Users\tstee\Source\Repos\INTEXII\Intex\obj\Debug\netcoreapp3.1\Intex.csproj.C
 C:\Users\tstee\Source\Repos\INTEXII\Intex\obj\Debug\netcoreapp3.1\Intex.dll
 C:\Users\tstee\Source\Repos\INTEXII\Intex\obj\Debug\netcoreapp3.1\Intex.pdb
 C:\Users\tstee\Source\Repos\INTEXII\Intex\obj\Debug\netcoreapp3.1\Intex.genruntimeconfig.cache
+C:\Users\tstee\source\repos\INTEXII\Intex\obj\Debug\netcoreapp3.1\Intex.csproj.AssemblyReference.cache
