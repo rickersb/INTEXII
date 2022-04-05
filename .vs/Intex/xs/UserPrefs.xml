@@ -1,19 +1,25 @@
 ﻿<Properties StartupConfiguration="{8280B15D-DA35-404F-A713-697A60370840}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Intex/Controllers/HomeController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Intex/Views/Home/Summary.cshtml">
     <Files>
-      <File FileName="Intex/Views/Home/Index.cshtml" Line="1" Column="1" />
-      <File FileName="Intex/Controllers/HomeController.cs" Line="48" Column="2" />
+      <File FileName="Intex/Views/Home/Index.cshtml" Line="35" Column="1" />
+      <File FileName="Intex/Controllers/HomeController.cs" Line="18" Column="10" />
+      <File FileName="Intex/Startup.cs" Line="1" Column="1" />
+      <File FileName="Intex/appsettings.json" Line="14" Column="1" />
+      <File FileName="Intex/Models/City.cs" Line="1" Column="1" />
+      <File FileName="Intex/Models/Crash.cs" Line="15" Column="51" />
+      <File FileName="Intex/Views/Home/Summary.cshtml" Line="6" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Intex" expanded="True">
             <Node name="Intex" expanded="True">
-              <Node name="Controllers" expanded="True">
-                <Node name="HomeController.cs" selected="True" />
-              </Node>
+              <Node name="Controllers" expanded="True" />
+              <Node name="Models" expanded="True" />
               <Node name="Views" expanded="True">
-                <Node name="Home" expanded="True" />
+                <Node name="Home" expanded="True">
+                  <Node name="Summary.cshtml" selected="True" />
+                </Node>
               </Node>
             </Node>
           </Node>

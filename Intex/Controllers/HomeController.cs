@@ -11,15 +11,17 @@ namespace Intex.Controllers
 {
     public class HomeController : Controller
     {
-       
+        private CrashesDbContext _context { get; set; }
 
-        public HomeController()
+
+        public HomeController(CrashesDbContext temp)
         {
-        
+            _context = temp;
         }
         public IActionResult Index()
         {
-            return View();
+            var blah = _context.Crashes.Single(x => x.CRASH_ID == 10805517);
+            return View(blah);
         }
         public IActionResult Graphs()
         {
@@ -31,7 +33,9 @@ namespace Intex.Controllers
         }
         public IActionResult Summary()
         {
-            return View();
+            var blah = _context.Crashes.Single(x => x.CRASH_ID == 10805517);
+
+            return View(blah);
         }
 
         public IActionResult Privacy()
