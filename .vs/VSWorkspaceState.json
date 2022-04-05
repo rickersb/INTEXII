@@ -7,6 +7,6 @@
     "\\Intex\\Views",
     "\\Intex\\Views\\Home"
   ],
-  "SelectedNode": "\\Intex\\Controllers\\CrashesDbContext.cs",
+  "SelectedNode": "\\Intex\\Views\\Home\\Index.cshtml",
   "PreviewInSolutionExplorer": false
 }
