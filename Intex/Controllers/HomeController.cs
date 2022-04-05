@@ -13,7 +13,7 @@ namespace Intex.Controllers
     {
         private CrashesDbContext _context { get; set; }
 
-
+        //Constructor
         public HomeController(CrashesDbContext temp)
         {
             _context = temp;
