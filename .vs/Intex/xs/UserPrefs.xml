@@ -1,14 +1,5 @@
 ﻿<Properties StartupConfiguration="{8280B15D-DA35-404F-A713-697A60370840}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Intex/Models/Crash.cs">
-    <Files>
-      <File FileName="Intex/Views/Home/Summary.cshtml" Line="157" Column="1" />
-      <File FileName="Intex/Controllers/HomeController.cs" Line="180" Column="45" />
-      <File FileName="../../../../Projects/mission4-movies/mission4-movies/Views/Home/EnterMovies.cshtml" Line="1" Column="1" />
-      <File FileName="../../../../Projects/mission4-movies/mission4-movies/Views/Home/MovieList.cshtml" Line="8" Column="21" />
-      <File FileName="Intex/wwwroot/js/site.js" Line="24" Column="1" />
-      <File FileName="Intex/Views/Home/Details.cshtml" Line="8" Column="1" />
-      <File FileName="Intex/Models/Crash.cs" Line="30" Column="9" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
@@ -18,10 +9,11 @@
               <Node name="Infrastructure" expanded="True" />
               <Node name="Models" expanded="True">
                 <Node name="ViewModels" expanded="True" />
-                <Node name="Crash.cs" selected="True" />
               </Node>
               <Node name="Views" expanded="True">
-                <Node name="Home" expanded="True" />
+                <Node name="Home" expanded="True">
+                  <Node name="Summary.cshtml" selected="True" />
+                </Node>
               </Node>
               <Node name="wwwroot" expanded="True">
                 <Node name="js" expanded="True" />
