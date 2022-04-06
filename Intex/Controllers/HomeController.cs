@@ -12,11 +12,9 @@ namespace Intex.Controllers
 {
     public class HomeController : Controller
     {
-        private iCrashesRepository repo { get; set; }
-
-
+        private ICrashesRepository repo { get; set; }
      
-        public HomeController(iCrashesRepository temp)
+        public HomeController(ICrashesRepository temp)
         {
             repo = temp;
         }
@@ -24,9 +22,6 @@ namespace Intex.Controllers
    
         public IActionResult Index()
         {
-            /*var x = repo.Crashes
-                .ToList();*/
-
             return View();
         }
 
@@ -40,6 +35,14 @@ namespace Intex.Controllers
         }
         public IActionResult Summary()
         {
+        
+            var x = repo.Crashes.ToList();
+
+            return View(x);
+        }
+        public IActionResult Admin()
+        {
+
             var x = repo.Crashes.ToList();
 
             return View(x);

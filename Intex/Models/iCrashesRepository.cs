@@ -3,10 +3,9 @@ using System.Linq;
 
 namespace Intex.Models
 {
-    public interface iCrashesRepository
+    public interface ICrashesRepository
     {
         IQueryable<Crash> Crashes { get; }
-
 
         public void SaveCrash(Crash c);
         public void CreateCrash(Crash c);

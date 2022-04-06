@@ -1,0 +1,58 @@
+﻿@page "/admin/crashes/details/{id:int}"
+
+<h3 class="bg-info text-white text-center p-1">Details</h3>
+
+<table class="table table-sm table-bordered table-striped">
+    <tbody>
+        <tr><th>Date & Time:</th><td>@crash.CRASH_DATETIME</td></tr>
+        <tr><th>Route:</th><td>@crash.ROUTE</td></tr>
+        <tr><th>Milepoint:</th><td>@crash.MILEPOINT</td></tr>
+        <tr><th>Latitude:</th><td>@crash.LAT_UTM_Y</td></tr>
+        <tr><th>Longitude:</th><td>@crash.LONG_UTM_X</td></tr>
+        <tr><th>Road Name:</th><td>@crash.MAIN_ROAD_NAME</td></tr>
+        <tr><th>City:</th><td>@crash.CITY_ID</td></tr>
+        <tr><th>County:</th><td>@crash.COUNTY_ID</td></tr>
+        <tr><th>Crash Severity:</th><td>@crash.CRASH_SEVERITY_ID</td></tr>
+        <tr><th>Work Zone Related:</th><td>@crash.WORK_ZONE_RELATED</td></tr>
+        <tr><th>Pedestrian Involved:</th><td>@crash.PEDESTRIAN_INVOLVED</td></tr>
+        <tr><th>Bicyclist Involved:</th><td>@crash.BICYCLIST_INVOLVED</td></tr>
+        <tr><th>Motorcycle Involved:</th><td>@crash.MOTORCYCLE_INVOLVED</td></tr>
+        <tr><th>Improper Restraint:</th><td>@crash.IMPROPER_RESTRAINT</td></tr>
+        <tr><th>Unrestrained:</th><td>@crash.UNRESTRAINED</td></tr>
+        <tr><th>DUI:</th><td>@crash.DUI</td></tr>
+        <tr><th>Intersection Related:</th><td>@crash.INTERSECTION_RELATED</td></tr>
+        <tr><th>Wild Animal Related:</th><td>@crash.WILD_ANIMAL_RELATED</td></tr>
+        <tr><th>Deomestic Animal Related:</th><td>@crash.DOMESTIC_ANIMAL_RELATED</td></tr>
+        <tr><th>Rollover:</th><td>@crash.OVERTURN_ROLLOVER</td></tr>
+        <tr><th>Commercial Vehicle Involved:</th><td>@crash.COMMERCIAL_MOTOR_VEH_INVOLVED</td></tr>
+        <tr><th>Teenage Driver Involved:</th><td>@crash.TEENAGE_DRIVER_INVOLVED</td></tr>
+        <tr><th>Older Driver Involved:</th><td>@crash.OLDER_DRIVER_INVOLVED</td></tr>
+        <tr><th>Nighttime Crash:</th><td>@crash.NIGHT_DARK_CONDITION</td></tr>
+        <tr><th>Single Vehicle Crash:</th><td>@crash.SINGLE_VEHICLE</td></tr>
+        <tr><th>Distracted Driving:</th><td>@crash.DISTRACTED_DRIVING</td></tr>
+        <tr><th>Drowsy Driving:</th><td>@crash.DROWSY_DRIVING</td></tr>
+        <tr><th>Roadway Departure:</th><td>@crash.ROADWAY_DEPARTURE</td></tr>
+
+    </tbody>
+</table>
+
+<NavLink class="btn btn-warning" href="@EditUrl">Edit</NavLink>
+<NavLink class="btn btn-secondary" href="/admin/crashes">Back</NavLink>
+
+
+@code {
+    [Inject]
+    public ICrashesRepository repo { get; set; }
+
+    [Parameter]
+    public int Id { get; set; }
+
+    public Crash crash { get; set; }
+
+    protected override void OnParametersSet()
+    {
+        crash = repo.Crashes.FirstOrDefault(x => x.CRASH_ID == Id);
+    }
+
+    public string EditUrl => $"/admin/crashes/edit/{crash.CRASH_ID}";
+}

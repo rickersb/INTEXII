@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ehorl\\Source\\Repos\\INTEXII\\Intex\\Intex.csproj": {}
+    "C:\\Users\\ehorl\\source\\repos\\INTEXII\\Intex\\Intex.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ehorl\\Source\\Repos\\INTEXII\\Intex\\Intex.csproj": {
+    "C:\\Users\\ehorl\\source\\repos\\INTEXII\\Intex\\Intex.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ehorl\\Source\\Repos\\INTEXII\\Intex\\Intex.csproj",
+        "projectUniqueName": "C:\\Users\\ehorl\\source\\repos\\INTEXII\\Intex\\Intex.csproj",
         "projectName": "Intex",
-        "projectPath": "C:\\Users\\ehorl\\Source\\Repos\\INTEXII\\Intex\\Intex.csproj",
+        "projectPath": "C:\\Users\\ehorl\\source\\repos\\INTEXII\\Intex\\Intex.csproj",
         "packagesPath": "C:\\Users\\ehorl\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ehorl\\Source\\Repos\\INTEXII\\Intex\\obj\\",
+        "outputPath": "C:\\Users\\ehorl\\source\\repos\\INTEXII\\Intex\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ehorl\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,9 +40,33 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
-            "Microsoft.EntityFrameworkCore": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
               "version": "[3.1.23, )"
+            },
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[3.1.23, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.23, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.23, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.23, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[3.1.5, )"
             },
             "Pomelo.EntityFrameworkCore.MySql": {
               "target": "Package",
