@@ -1,7 +1,12 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Intex",
+    "\\Intex\\Pages",
+    "\\Intex\\Pages\\Admin",
+    "\\Intex\\Views",
+    "\\Intex\\Views\\Home"
   ],
-  "SelectedNode": "\\Intex.sln",
+  "SelectedNode": "\\Intex\\Pages\\Admin\\Routed.razor",
   "PreviewInSolutionExplorer": false
 }

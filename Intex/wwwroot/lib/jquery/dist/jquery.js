@@ -559,8 +559,8 @@ var i,
 	tokenCache = createCache(),
 	compilerCache = createCache(),
 	nonnativeSelectorCache = createCache(),
-	sortOrder = function( a, b ) {
-		if ( a === b ) {
+	sortOrder = function( a, c ) {
+		if ( a === c ) {
 			hasDuplicate = true;
 		}
 		return 0;
@@ -968,8 +968,8 @@ function addHandle( attrs, handler ) {
  * @param {Element} b
  * @returns {Number} Returns less than 0 if a precedes b, greater than 0 if a follows b
  */
-function siblingCheck( a, b ) {
-	var cur = b && a,
+function siblingCheck( a, c ) {
+	var cur = c && a,
 		diff = cur && a.nodeType === 1 && b.nodeType === 1 &&
 			a.sourceIndex - b.sourceIndex;
 
@@ -978,10 +978,10 @@ function siblingCheck( a, b ) {
 		return diff;
 	}
 
-	// Check if b follows a
+	// Check if c follows a
 	if ( cur ) {
 		while ( ( cur = cur.nextSibling ) ) {
-			if ( cur === b ) {
+			if ( cur === c ) {
 				return -1;
 			}
 		}
@@ -1447,19 +1447,19 @@ setDocument = Sizzle.setDocument = function( node ) {
 	// Purposefully self-exclusive
 	// As in, an element does not contain itself
 	contains = hasCompare || rnative.test( docElem.contains ) ?
-		function( a, b ) {
+		function( a, c ) {
 			var adown = a.nodeType === 9 ? a.documentElement : a,
-				bup = b && b.parentNode;
+				bup = c && b.parentNode;
 			return a === bup || !!( bup && bup.nodeType === 1 && (
 				adown.contains ?
 					adown.contains( bup ) :
 					a.compareDocumentPosition && a.compareDocumentPosition( bup ) & 16
 			) );
 		} :
-		function( a, b ) {
-			if ( b ) {
-				while ( ( b = b.parentNode ) ) {
-					if ( b === a ) {
+		function( a, c ) {
+			if ( c ) {
+				while ( ( c = b.parentNode ) ) {
+					if ( c === a ) {
 						return true;
 					}
 				}
@@ -1472,10 +1472,10 @@ setDocument = Sizzle.setDocument = function( node ) {
 
 	// Document order sorting
 	sortOrder = hasCompare ?
-	function( a, b ) {
+	function( a, c ) {
 
 		// Flag for duplicate removal
-		if ( a === b ) {
+		if ( a === c ) {
 			hasDuplicate = true;
 			return 0;
 		}
@@ -1491,8 +1491,8 @@ setDocument = Sizzle.setDocument = function( node ) {
 		// IE/Edge sometimes throw a "Permission denied" error when strict-comparing
 		// two documents; shallow comparisons work.
 		// eslint-disable-next-line eqeqeq
-		compare = ( a.ownerDocument || a ) == ( b.ownerDocument || b ) ?
-			a.compareDocumentPosition( b ) :
+		compare = ( a.ownerDocument || a ) == ( b.ownerDocument || c ) ?
+			a.compareDocumentPosition( c ) :
 
 			// Otherwise we know they are disconnected
 			1;
@@ -1515,23 +1515,23 @@ setDocument = Sizzle.setDocument = function( node ) {
 			// IE/Edge sometimes throw a "Permission denied" error when strict-comparing
 			// two documents; shallow comparisons work.
 			// eslint-disable-next-line eqeqeq
-			if ( b == document || b.ownerDocument == preferredDoc &&
-				contains( preferredDoc, b ) ) {
+			if ( c == document || b.ownerDocument == preferredDoc &&
+				contains( preferredDoc, c ) ) {
 				return 1;
 			}
 
 			// Maintain original order
 			return sortInput ?
-				( indexOf( sortInput, a ) - indexOf( sortInput, b ) ) :
+				( indexOf( sortInput, a ) - indexOf( sortInput, c ) ) :
 				0;
 		}
 
 		return compare & 4 ? -1 : 1;
 	} :
-	function( a, b ) {
+	function( a, c ) {
 
 		// Exit early if the nodes are identical
-		if ( a === b ) {
+		if ( a === c ) {
 			hasDuplicate = true;
 			return 0;
 		}
@@ -1541,7 +1541,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 			aup = a.parentNode,
 			bup = b.parentNode,
 			ap = [ a ],
-			bp = [ b ];
+			bp = [ c ];
 
 		// Parentless nodes are either documents or disconnected
 		if ( !aup || !bup ) {
@@ -1556,12 +1556,12 @@ setDocument = Sizzle.setDocument = function( node ) {
 				aup ? -1 :
 				bup ? 1 :
 				sortInput ?
-				( indexOf( sortInput, a ) - indexOf( sortInput, b ) ) :
+				( indexOf( sortInput, a ) - indexOf( sortInput, c ) ) :
 				0;
 
 		// If the nodes are siblings, we can do a quick check
 		} else if ( aup === bup ) {
-			return siblingCheck( a, b );
+			return siblingCheck( a, c );
 		}
 
 		// Otherwise we need full lists of their ancestors for comparison

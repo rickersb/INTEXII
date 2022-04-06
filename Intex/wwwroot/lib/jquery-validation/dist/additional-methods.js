@@ -182,7 +182,7 @@ $.validator.addMethod( "bic", function( value, element ) {
  * [ T ]  -->  [ C ]
  * ------    ----------
  *   A         Number
- *   B         Number
+ *   c         Number
  *   E         Number
  *   H         Number
  *   K         Letter
