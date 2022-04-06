@@ -8,12 +8,31 @@
 
 <div class="container jumbotron">
     <h4>
-        The crash in @foreach (City c in ViewBag.City)
+        The crash in
+        @if (Model.CITY_ID == 277)
         {
+            @foreach (County c in ViewBag.County)
+            {
+
+                if (c.COUNTY_ID == Model.COUNTY_ID)
+                {
+        <span style="text-transform: capitalize; text-decoration:underline;">@c.COUNTY_NAME.ToLower() County</span>}
+            }
+        }
+        else {
+        foreach (City c in ViewBag.City)
+        {
+
             if (c.CITY_ID == Model.CITY_ID)
             {
                 <span style="text-transform: capitalize; text-decoration:underline;">@c.CITY.ToLower()</span>}
         }
+
+        }
+
+
+
+
         on route @Model.ROUTE at milepoint @Model.MILEPOINT was related to the following:
     </h4>
     <ul>
