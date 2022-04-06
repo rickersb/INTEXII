@@ -15,12 +15,11 @@ namespace Intex.Controllers
 {
     public class HomeController : Controller
     {
-        private iCrashesRepository repo { get; set; }
-        private iCountyRepository countyRepo { get; set; }
-        private iCityRepository cityRepo { get; set; }
+        private ICrashesRepository repo { get; set; }
+        private ICountyRepository countyRepo { get; set; }
+        private ICityRepository cityRepo { get; set; }
 
-
-        public HomeController(iCrashesRepository temp, iCountyRepository temp2, iCityRepository temp3)
+        public HomeController(ICrashesRepository temp, ICountyRepository temp2, ICityRepository temp3)
         {
             repo = temp;
             countyRepo = temp2;
@@ -30,7 +29,6 @@ namespace Intex.Controllers
    
         public IActionResult Index()
         {
-
             return View();
         }
 
@@ -42,8 +40,6 @@ namespace Intex.Controllers
         {
             return View();
         }
-
-        
         public async Task<IActionResult> Summary(
             string sortOrder,
             string searchString,
@@ -84,11 +80,11 @@ namespace Intex.Controllers
             ViewBag.Counties = countyRepo.Counties.ToList();
             ViewBag.Cities = cityRepo.Cities.ToList();
 
-             var crashes = from s in repo.Crashes select s;
+            var crashes = from s in repo.Crashes select s;
 
             if (searchString != null)
             {
-                if((citySearchID > 0) && (countySearchID > 0))
+                if ((citySearchID > 0) && (countySearchID > 0))
                 {
                     crashes = crashes.Where(s => s.MAIN_ROAD_NAME.Contains(searchString)
                     && ((s.CITY_ID == citySearchID) && (s.COUNTY_ID == countySearchID)));
@@ -121,10 +117,10 @@ namespace Intex.Controllers
 
 
             }
-           
+
             switch (sortOrder)
             {
-                
+
                 case "date_desc":
                     crashes = crashes.OrderByDescending(s => s.CRASH_DATETIME);
                     break;
@@ -186,7 +182,6 @@ namespace Intex.Controllers
             return View(await PaginatedList<Crash>.CreateAsync(crashes.AsNoTracking(), pageNumber ?? 1, pageSize));
         }
 
-        
         public IActionResult Details(int id)
         {
             ViewBag.County = countyRepo.Counties.ToList();
@@ -197,10 +192,71 @@ namespace Intex.Controllers
             return View("Details", Details);
         }
 
+
+        public IActionResult Admin()
+        {
+
+            var x = repo.Crashes.ToList();
+
+            return View(x);
+        }
+
         public IActionResult Privacy()
         {
             return View();
         }
+
+        //form for creating and editing
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(Crash c)
+        {
+            if (ModelState.IsValid)
+            {
+                if (c.CRASH_ID > 0)
+                {
+                    repo.SaveCrash(c);
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    repo.CreateCrash(c);
+                    return RedirectToAction("Confirmation");
+                }
+
+            }
+            else
+            {
+
+                return View();
+            }
+        }
+
+        public IActionResult Edit(int crashid)
+        {
+            var crash = repo.Crashes
+                 .Single(x => x.CRASH_ID == crashid);
+
+
+            return View("Create", crash);
+        }
+
+
+        //delete a record
+        public IActionResult Delete(int crashid)
+        {
+            var crash = repo.Crashes
+                 .Single(x => x.CRASH_ID == crashid);
+            repo.DeleteCrash(crash);
+
+            return RedirectToAction("Index");
+        }
+        public IActionResult Confirmation() => View();
 
 
 

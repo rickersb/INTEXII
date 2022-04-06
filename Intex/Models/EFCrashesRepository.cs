@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace Intex.Models
 {
-    public class EFCrashesRepository : iCrashesRepository
+    public class EFCrashesRepository : ICrashesRepository
     {
         private CrashesDbContext _context { get; set; }
 
@@ -11,8 +11,6 @@ namespace Intex.Models
         {
             _context = temp;
         }
-
-
 
         public IQueryable<Crash> Crashes => _context.Crashes;
 

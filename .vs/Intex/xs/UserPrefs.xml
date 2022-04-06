@@ -11,7 +11,7 @@
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="Intex" expanded="True">
+          <Node name="Intex" expanded="True" selected="True">
             <Node name="Intex" expanded="True">
               <Node name="Controllers" expanded="True">
                 <Node name="HomeController.cs" selected="True" />

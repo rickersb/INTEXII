@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace Intex.Models
 {
-    public class EFCountyRepository : iCountyRepository
+    public class EFCountyRepository : ICountyRepository
     {
         private CountyDbContext _context { get; set; }
 
