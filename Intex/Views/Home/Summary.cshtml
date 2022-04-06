@@ -3,10 +3,246 @@
     ViewData["Title"] = "Summary";
 }
 
-@model List<Crash>
+@model PaginatedList<Crash>
 
 
 <h1>Crash Data</h1>
+<br />
+
+<form asp-action="Summary" method="get">
+    <div class="form-actions no-color">
+
+        @*select counties*@
+        <select name="CountySearchID" id="sort-county">
+            <option value="">Select County</option>
+            <option value="1">BEAVER</option>
+            <option value="2">BOX ELDER</option>
+            <option value="3">CACHE</option>
+            <option value="4">CARBON</option>
+            <option value="5">DAGGETT</option>
+            <option value="6">DAVIS</option>
+            <option value="7">DUCHESNE</option>
+            <option value="8">EMERY</option>
+            <option value="9">GARFIELD</option>
+            <option value="10">GRAND</option>
+            <option value="11">IRON</option>
+            <option value="12">JUAB</option>
+            <option value="13">KANE</option>
+            <option value="14">MILLARD</option>
+            <option value="15">MORGAN</option>
+            <option value="16">PIUTE</option>
+            <option value="17">RICH</option>
+            <option value="18">SALT LAKE</option>
+            <option value="19">SAN JUAN</option>
+            <option value="20">SANPETE</option>
+            <option value="21">SEVIER</option>
+            <option value="22">SUMMIT</option>
+            <option value="23">TOOELE</option>
+            <option value="24">UINTAH</option>
+            <option value="25">UTAH</option>
+            <option value="26">WASATCH</option>
+            <option value="27">WASHINGTON</option>
+            <option value="28">WAYNE</option>
+            <option value="29">WEBER</option>
+
+        </select>
+        <br />
+        <br />
+        <select name="CitySearchID" id="sort-city">
+            <option value="">Select City</option>
+            @foreach (City c in ViewBag.Cities)
+            {
+                <option value="@c.CITY_ID">@c.CITY</option>
+            }
+        </select>
 
 
 
+        <br />
+        <br />
+        
+        <p>
+            Find by road keyword: <input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
+            <input type="submit" value="Search" class="btn btn-primary" />
+            <br />
+            <a asp-action="Summary">Back to Full List</a>
+        </p>
+
+    </div>
+</form>
+
+
+<table class="table table-bordered table-striped">
+
+    <thead>
+        <tr>
+
+            <th>
+                <a asp-action="Summary"
+                   asp-route-sortOrder="@ViewData["DateSortParm"]"
+                   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+                   asp-route-countyFilter="@ViewData["CountyFilter"]"
+                   asp-route-cityFilter="@ViewData["CityFilter"]">Date</a>
+            </th>
+            <th>
+                <a asp-action="Summary"
+                   asp-route-sortOrder="@ViewData["CountyIDSortParm"]"
+                   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+                   asp-route-countyFilter="@ViewData["CountyFilter"]"
+                   asp-route-cityFilter="@ViewData["CityFilter"]">County</a>
+            </th>
+            <th>
+                <a asp-action="Summary"
+                   asp-route-sortOrder="@ViewData["CityIDSortParm"]"
+                   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+                   asp-route-countyFilter="@ViewData["CountyFilter"]"
+                   asp-route-cityFilter="@ViewData["CityFilter"]">City</a>
+            </th>
+            <th>
+                <a asp-action="Summary"
+                   asp-route-sortOrder="@ViewData["RouteSortParm"]"
+                   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+                   asp-route-countyFilter="@ViewData["CountyFilter"]"
+                   asp-route-cityFilter="@ViewData["CityFilter"]">Route</a>
+            </th>
+            <th>
+                <a asp-action="Summary"
+                   asp-route-sortOrder="@ViewData["MPSortParm"]"
+                   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+                   asp-route-countyFilter="@ViewData["CountyFilter"]"
+                   asp-route-cityFilter="@ViewData["CityFilter"]">Mile Point</a>
+            </th>
+            <th>
+                <a asp-action="Summary"
+                   asp-route-sortOrder="@ViewData["LatSortParm"]"
+                   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+                   asp-route-countyFilter="@ViewData["CountyFilter"]"
+                   asp-route-cityFilter="@ViewData["CityFilter"]">Latitude</a>
+            </th>
+            <th>
+                <a asp-action="Summary"
+                   asp-route-sortOrder="@ViewData["LonSortParm"]"
+                   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+                   asp-route-countyFilter="@ViewData["CountyFilter"]"
+                   asp-route-cityFilter="@ViewData["CityFilter"]">Longitude</a>
+            </th>
+            <th>
+                <a asp-action="Summary"
+                   asp-route-sortOrder="@ViewData["RoadSortParm"]"
+                   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+                   asp-route-countyFilter="@ViewData["CountyFilter"]"
+                   asp-route-cityFilter="@ViewData["CityFilter"]">Road Name</a>
+            </th>
+            <th>
+                <a asp-action="Summary"
+                   asp-route-sortOrder="@ViewData["SLSortParm"]"
+                   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+                   asp-route-countyFilter="@ViewData["CountyFilter"]"
+                   asp-route-cityFilter="@ViewData["CityFilter"]">Severity Level</a>
+            </th>
+
+            
+        <th>
+            <a asp-action="Summary"
+               asp-route-currentFilter="@ViewData["CurrentFilter"]"
+               asp-route-countyFilter="@ViewData["CountyFilter"]"
+               asp-route-cityFilter="@ViewData["CityFilter"]">Causes</a>
+        </th>
+            
+        </tr>
+    </thead>
+    <tbody>
+
+
+
+        @{
+            int i = 0;
+
+
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CRASH_DATETIME)
+                    </td>
+
+                    @foreach (County c in ViewBag.Counties)
+                    {
+                        if (c.COUNTY_ID == item.COUNTY_ID)
+                        {
+                            <td>
+                                @Html.DisplayFor(modelItem => c.COUNTY_NAME)
+                            </td>
+                        }
+                    }
+
+                    @foreach (City c in ViewBag.Cities)
+                    {
+                        if (c.CITY_ID == item.CITY_ID)
+                        {
+                            <td>
+                                @Html.DisplayFor(modelItem => c.CITY)
+                            </td>
+                        }
+                    }
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ROUTE)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MILEPOINT)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LAT_UTM_Y)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LONG_UTM_X)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MAIN_ROAD_NAME)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CRASH_SEVERITY_ID)
+                    </td>
+
+                    
+                    <td>
+                        <a asp-controller="Home" asp-action="Details" asp-route-id="@item.CRASH_ID">See Details</a>
+                    </td>
+                    
+                </tr>
+
+                i++;
+                if (i == 10)
+                {
+                    break;
+                }
+            }
+        }
+    </tbody>
+</table>
+
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+<br />
+<p>Page @Model.PageIndex of @Model.TotalPages</p>
+<br />
+<a asp-action="Summary"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex - 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   asp-route-countyFilter="@ViewData["CountyFilter"]"
+   asp-route-cityFilter="@ViewData["CityFilter"]"
+   class="btn btn-default border-primary @prevDisabled">
+    Previous
+</a>
+<a asp-action="Summary"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex + 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   asp-route-countyFilter="@ViewData["CountyFilter"]"
+   asp-route-cityFilter="@ViewData["CityFilter"]"
+   class="btn btn-default border-primary @nextDisabled">
+    Next
+</a>

@@ -2,11 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\Intex",
-    "\\Intex\\Controllers",
-    "\\Intex\\Models",
+    "\\Intex\\Pages",
+    "\\Intex\\Pages\\Admin",
     "\\Intex\\Views",
     "\\Intex\\Views\\Home"
   ],
-  "SelectedNode": "\\Intex\\Views\\Home\\Index.cshtml",
+  "SelectedNode": "\\Intex\\Pages\\Admin\\Routed.razor",
   "PreviewInSolutionExplorer": false
 }

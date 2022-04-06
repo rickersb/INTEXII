@@ -6,6 +6,7 @@ using Intex.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -32,7 +33,34 @@ namespace Intex
                options.UseMySql(Configuration["ConnectionStrings:CrashesDbConnection"]);
 
            });
-            services.AddScoped<iCrashesRepository, EFCrashesRepository>();
+
+
+            services.AddDbContext<AppIdentityDBContext>(options =>
+            {
+                options.UseMySql(Configuration["ConnectionStrings:IdentityConnection"]);
+
+            });
+            services.AddDefaultIdentity<IdentityUser>(Options => Options.SignIn.RequireConfirmedAccount = true)
+                .AddEntityFrameworkStores<AppIdentityDBContext>();
+            services.AddDbContext<CountyDbContext>(options =>
+            {
+                options.UseMySql(Configuration["ConnectionStrings:CrashesDbConnection"]);
+
+            });
+            services.AddDbContext<CityDbContext>(options =>
+            {
+                options.UseMySql(Configuration["ConnectionStrings:CrashesDbConnection"]);
+
+            });
+            services.AddScoped<ICrashesRepository, EFCrashesRepository>();
+            services.AddScoped<ICountyRepository, EFCountyRepository>();
+            services.AddScoped<ICityRepository, EFCityRepository>();
+
+            
+
+            services.AddRazorPages();
+
+            services.AddServerSideBlazor();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -53,6 +81,7 @@ namespace Intex
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -60,7 +89,24 @@ namespace Intex
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+                endpoints.MapDefaultControllerRoute();
+
+                endpoints.MapRazorPages();
+
+                endpoints.MapBlazorHub();
+
+                endpoints.MapFallbackToPage("/admin/{*catchall}", "/Admin/Index");
+
+                endpoints.MapControllerRoute(
+                    name: "Paging",
+                    pattern: "Page{pageNum}",
+                    defaults: new { Controller = "Home", action = "Summary", pageNum = 1 });
             });
+
+            IdentitySeedData.EnsurePopulated(app);
+
+
         }
     }
 }

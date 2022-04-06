@@ -1,0 +1,81 @@
+﻿@page "/admin/crashes"
+@page "/admin"
+@inherits OwningComponentBase<ICrashesRepository>
+
+
+<table class="table table-bordered">
+    <thead class="font-weight-bold">
+        <tr>
+            <td>Date and Time</td>
+            <td>Road Name</td>
+            <td>City</td>
+            <td>Crash Severity</td>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @if (CrashData?.Count() > 0)
+        {
+            //List the crashes
+            @foreach (Crash c in CrashData)
+            {
+                //Display data
+                <tr>
+                    <td>@c.CRASH_DATETIME</td>
+                    <td>@c.MAIN_ROAD_NAME</td>
+                    <td>@c.CITY_ID</td>
+                    <td>@c.CRASH_SEVERITY_ID</td>
+
+
+                    <td>
+                        <NavLink class="btn btn-info btn sm" href="@GetDetailsUrl(c.CRASH_ID)">Details</NavLink>
+                    </td>
+                    <td>
+                        <NavLink class="btn btn-warning btn sm" href="@GetEditUrl(c.CRASH_ID)">Edit</NavLink>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger btn sm" @onclick="@(x => RemoveCrash(c))">Delete</button>
+                    </td>
+
+                </tr>
+            }
+        }
+        else
+        {
+            //Return if there are no records in the database
+            <tr>
+                <td colspan="5" class="text-center">No Crashes in the database</td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+
+@code {
+
+    public ICrashesRepository repo => Service;
+
+    public IEnumerable<Crash> CrashData { get; set; }
+
+    protected async override Task OnInitializedAsync()
+    {
+        await UpdateData();
+    }
+
+    public async Task UpdateData()
+    {
+        CrashData = await repo.Crashes.Take(50).ToListAsync();
+    }
+
+    public string GetDetailsUrl(int id) => $"/admin/crashes/details/{id}";
+    public string GetEditUrl(int id) => $"/admin/crashes/edit/{id}";
+
+    public async Task RemoveCrash(Crash c)
+    {
+        repo.DeleteCrash(c);
+        await UpdateData();
+    }
+
+}

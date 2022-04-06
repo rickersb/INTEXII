@@ -13,15 +13,18 @@ namespace Intex.Models
         public int CRASH_ID { get; set; }
         [Required]
         public DateTime CRASH_DATETIME { get; set; }
+        [Required]
         public string ROUTE { get; set; }
         public double MILEPOINT { get; set; }
         public double LAT_UTM_Y { get; set; }
         public double LONG_UTM_X { get; set; }
+        [Required]
         public string MAIN_ROAD_NAME { get; set; }
         [Required]
         public int CITY_ID { get; set; }
         [Required]
         public int COUNTY_ID { get; set; }
+        [Required]
         public int CRASH_SEVERITY_ID { get; set; }
         public bool WORK_ZONE_RELATED { get; set; }
         public bool PEDESTRIAN_INVOLVED { get; set; }
@@ -42,6 +45,8 @@ namespace Intex.Models
         public bool DISTRACTED_DRIVING { get; set; }
         public bool DROWSY_DRIVING { get; set; }
         public bool ROADWAY_DEPARTURE { get; set; }
+
+        public virtual ICollection<County> County { get; set; }
 
     }
 }
