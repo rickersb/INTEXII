@@ -24,8 +24,7 @@ namespace Intex.Controllers
    
         public IActionResult Index()
         {
-            /*var x = repo.Crashes
-                .ToList();*/
+            
 
             return View();
         }
@@ -40,9 +39,9 @@ namespace Intex.Controllers
         }
         public IActionResult Summary()
         {
-            var x = repo.Crashes.ToList();
+           
 
-            return View(x);
+            return View();
         }
 
         public IActionResult Privacy()
