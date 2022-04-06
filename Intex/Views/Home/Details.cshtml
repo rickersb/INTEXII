@@ -12,7 +12,7 @@
         {
             if (c.CITY_ID == Model.CITY_ID)
             {
-        <span style="text-transform: capitalize; text-decoration:underline;">@c.CITY.ToLower()</span>}
+                <span style="text-transform: capitalize; text-decoration:underline;">@c.CITY.ToLower()</span>}
         }
         on route @Model.ROUTE at milepoint @Model.MILEPOINT was related to the following:
     </h4>
@@ -103,4 +103,5 @@
 
         }
     </ul>
+    <a asp-action="Summary">Back to Full List</a>
 </div>

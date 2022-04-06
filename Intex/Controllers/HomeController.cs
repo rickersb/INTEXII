@@ -84,7 +84,7 @@ namespace Intex.Controllers
             ViewBag.Counties = countyRepo.Counties.ToList();
             ViewBag.Cities = cityRepo.Cities.ToList();
 
-            var crashes = from s in repo.Crashes select s;
+             var crashes = from s in repo.Crashes select s;
 
             if (searchString != null)
             {
@@ -104,9 +104,22 @@ namespace Intex.Controllers
                 }
 
             }
-            else if ((searchString is null) && (citySearchID > 0))
+            else if ((searchString is null) && ((citySearchID > 0) || countySearchID > 0))
             {
-                crashes = crashes.Where(s => s.CITY_ID == citySearchID);
+                if (citySearchID > 0)
+                {
+                    crashes = crashes.Where(s => s.CITY_ID == citySearchID);
+                }
+                if (countySearchID > 0)
+                {
+                    crashes = crashes.Where(s => s.COUNTY_ID == countySearchID);
+                }
+                if ((countySearchID > 0) && (citySearchID > 0))
+                {
+                    crashes = crashes.Where(s => (s.CITY_ID == citySearchID) && (s.COUNTY_ID == countySearchID));
+                }
+
+
             }
            
             switch (sortOrder)
