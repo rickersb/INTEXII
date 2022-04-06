@@ -123,3 +123,4 @@ C:/Users/tstee/source/repos/INTEXII/Intex/obj/Debug/netcoreapp3.1/Intex.csproj.A
 /Users/ben/Desktop/IS/INTEXII/Intex/Intex/obj/Debug/netcoreapp3.1/Intex.csproj.CopyComplete
 /Users/ben/Desktop/IS/INTEXII/Intex/Intex/obj/Debug/netcoreapp3.1/Intex.genruntimeconfig.cache
 /Users/ben/Desktop/IS/INTEXII/Intex/Intex/obj/Debug/netcoreapp3.1/Razor/Views/Shared/CrashesSummary.cshtml.g.cs
+/Users/ben/Desktop/IS/INTEXII/Intex/Intex/obj/Debug/netcoreapp3.1/Razor/Views/Home/Details.cshtml.g.cs

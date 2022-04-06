@@ -17,19 +17,19 @@ namespace Intex.Controllers
     {
         private iCrashesRepository repo { get; set; }
         private iCountyRepository countyRepo { get; set; }
+        private iCityRepository cityRepo { get; set; }
 
 
-        public HomeController(iCrashesRepository temp, iCountyRepository temp2)
+        public HomeController(iCrashesRepository temp, iCountyRepository temp2, iCityRepository temp3)
         {
             repo = temp;
             countyRepo = temp2;
+            cityRepo = temp3;
         }
 
    
         public IActionResult Index()
         {
-            /*var x = repo.Crashes
-                .ToList();*/
 
             return View();
         }
@@ -48,40 +48,55 @@ namespace Intex.Controllers
             string sortOrder,
             string searchString,
             string currentFilter,
+            int countyFilter,
             int countySearchID,
+            int cityFilter,
+            int citySearchID,
             int? pageNumber)
         {
             ViewData["DateSortParm"] = sortOrder == "Date" ? "date_desc" : "Date";
             ViewData["CountyIDSortParm"] = sortOrder == "County" ? "county_desc" : "County";
+            ViewData["CityIDSortParm"] = sortOrder == "City" ? "city_desc" : "City";
             ViewData["RouteSortParm"] = sortOrder == "Route" ? "route_desc" : "Route";
             ViewData["MPSortParm"] = sortOrder == "MP" ? "MP_desc" : "MP";
             ViewData["LatSortParm"] = sortOrder == "Lat" ? "lat_desc" : "Lat";
             ViewData["LonSortParm"] = sortOrder == "Lon" ? "lon_desc" : "Lon";
             ViewData["RoadSortParm"] = sortOrder == "Road" ? "road_desc" : "Road";
-            ViewData["SLSortParm"] = sortOrder == "SL" ? "lat_desc" : "SL";
+            ViewData["SLSortParm"] = sortOrder == "SL" ? "SL_desc" : "SL";
 
             ViewData["CurrentSort"] = sortOrder;
-            if (searchString != null)
+            if ((searchString != null) || (countySearchID > 0) || (citySearchID > 0))
             {
                 pageNumber = 1;
             }
             else
             {
                 searchString = currentFilter;
+                countySearchID = countyFilter;
+                citySearchID = cityFilter;
+
             }
 
             ViewData["CurrentFilter"] = searchString;
-            ViewData["CountytFilter"] = countySearchID;
+            ViewData["CountyFilter"] = countySearchID;
+            ViewData["CityFilter"] = citySearchID;
 
             ViewBag.Counties = countyRepo.Counties.ToList();
+            ViewBag.Cities = cityRepo.Cities.ToList();
+
             var crashes = from s in repo.Crashes select s;
 
             if (searchString != null)
             {
-                if(countySearchID > 0)
+                if((citySearchID > 0) && (countySearchID > 0))
                 {
                     crashes = crashes.Where(s => s.MAIN_ROAD_NAME.Contains(searchString)
-                    && s.COUNTY_ID == countySearchID);
+                    && ((s.CITY_ID == citySearchID) && (s.COUNTY_ID == countySearchID)));
+                }
+                else if ((citySearchID > 0) || (countySearchID > 0))
+                {
+                    crashes = crashes.Where(s => s.MAIN_ROAD_NAME.Contains(searchString)
+                    && ((s.CITY_ID == citySearchID) || (s.COUNTY_ID == countySearchID)));
                 }
                 else
                 {
@@ -89,9 +104,9 @@ namespace Intex.Controllers
                 }
 
             }
-            else if ((searchString is null) && countySearchID > 0)
+            else if ((searchString is null) && (citySearchID > 0))
             {
-                crashes = crashes.Where(s => s.COUNTY_ID == countySearchID);
+                crashes = crashes.Where(s => s.CITY_ID == citySearchID);
             }
            
             switch (sortOrder)
@@ -105,6 +120,12 @@ namespace Intex.Controllers
                     break;
                 case "county_desc":
                     crashes = crashes.OrderByDescending(s => s.COUNTY_ID);
+                    break;
+                case "City":
+                    crashes = crashes.OrderBy(s => s.CITY_ID);
+                    break;
+                case "city_desc":
+                    crashes = crashes.OrderByDescending(s => s.CITY_ID);
                     break;
                 case "Route":
                     crashes = crashes.OrderBy(s => s.ROUTE);
@@ -148,8 +169,19 @@ namespace Intex.Controllers
                     break;
             }
             int pageSize = 10;
-            
+
             return View(await PaginatedList<Crash>.CreateAsync(crashes.AsNoTracking(), pageNumber ?? 1, pageSize));
+        }
+
+        
+        public IActionResult Details(int id)
+        {
+            ViewBag.County = countyRepo.Counties.ToList();
+            ViewBag.City = cityRepo.Cities.ToList();
+            var Details = repo.Crashes
+                .Single(x => x.CRASH_ID == id);
+
+            return View("Details", Details);
         }
 
         public IActionResult Privacy()
