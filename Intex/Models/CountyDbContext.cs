@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Intex.Models
 {
-    public class CrashesDbContext : DbContext
+    public class CountyDbContext : DbContext
     {
-        public CrashesDbContext(DbContextOptions<CrashesDbContext> options) : base(options)
+        public CountyDbContext(DbContextOptions<CountyDbContext> options) : base(options)
         {
 
         }
 
-        public DbSet<Crash> Crashes { get; set; }
+     
         public DbSet<County> Counties { get; set; }
     }
 }

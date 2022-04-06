@@ -20,8 +20,11 @@ namespace Intex.Models
         public string MAIN_ROAD_NAME { get; set; }
         [Required]
         public int CITY_ID { get; set; }
+
+        //build foreign key relationship
         [Required]
         public int COUNTY_ID { get; set; }
+        
 
         public int CRASH_SEVERITY_ID { get; set; }
         public bool WORK_ZONE_RELATED { get; set; }
