@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.ML.OnnxRuntime;
 
 namespace Intex
 {
@@ -61,6 +62,10 @@ namespace Intex
             services.AddRazorPages();
 
             services.AddServerSideBlazor();
+
+
+            services.AddSingleton<InferenceSession>(
+                new InferenceSession("Model/BestModel.onnx"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
