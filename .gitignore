@@ -74,3 +74,12 @@ Intex/obj/Intex.csproj.nuget.dgspec.json
 Intex/obj/Intex.csproj.nuget.g.props
 Intex/obj/project.assets.json
 Intex/obj/project.nuget.cache
+Intex/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/Admin/Routed.razor.g.cs
+Intex/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/Admin/Editor.razor.g.cs
+Intex/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/Admin/Details.razor.g.cs
+Intex/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/Admin/Crashes.razor.g.cs
+Intex/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/Admin/AdminLayout.razor.g.cs
+Intex/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/Admin/_Imports.razor.g.cs
+Intex/obj/Debug/netcoreapp3.1/Intex.RazorComponent.input.cache
+Intex/obj/Debug/netcoreapp3.1/Intex.GeneratedMSBuildEditorConfig.editorconfig
+Intex/obj/Debug/netcoreapp3.1/Intex.assets.cache
