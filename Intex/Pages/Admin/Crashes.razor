@@ -3,8 +3,8 @@
 @inherits OwningComponentBase<ICrashesRepository>
 
 
-<table class="table table-bordered">
-    <thead class="font-weight-bold">
+<table class="table table-striped">
+    <thead class="thead-dark">
         <tr>
             <td>Date and Time</td>
             <td>Road Name</td>
@@ -29,13 +29,13 @@
 
 
                     <td>
-                        <NavLink class="btn btn-info btn sm" href="@GetDetailsUrl(c.CRASH_ID)">Details</NavLink>
+                        <NavLink class="text-center" href="@GetDetailsUrl(c.CRASH_ID)"><img class="rounded mx-auto d-block" src="https://img.icons8.com/ios-filled/30/000000/search--v1.png" /></NavLink>
                     </td>
                     <td>
-                        <NavLink class="btn btn-warning btn sm" href="@GetEditUrl(c.CRASH_ID)">Edit</NavLink>
+                        <NavLink class="text-center" href="@GetEditUrl(c.CRASH_ID)"><img class="rounded mx-auto d-block" src="https://img.icons8.com/ios-glyphs/30/000000/edit--v4.png"></NavLink>
                     </td>
                     <td>
-                        <button class="btn btn-danger btn sm" @onclick="@(x => RemoveCrash(c))">Delete</button>
+                        <button style="border:none;"class="text-center" @onclick="@(x => RemoveCrash(c))"><img class="rounded mx-auto d-block" src="https://img.icons8.com/material-rounded/30/000000/filled-trash.png" /></button>
                     </td>
 
                 </tr>

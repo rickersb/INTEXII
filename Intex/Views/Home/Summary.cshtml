@@ -72,9 +72,8 @@
 </form>
 
 
-<table class="table table-bordered table-striped">
-
-    <thead>
+<table class="table table-striped">
+    <thead class="thead-light">
         <tr>
 
             <th>
@@ -141,14 +140,14 @@
                    asp-route-cityFilter="@ViewData["CityFilter"]">Severity Level</a>
             </th>
 
-            
-        <th>
-            <a asp-action="Summary"
-               asp-route-currentFilter="@ViewData["CurrentFilter"]"
-               asp-route-countyFilter="@ViewData["CountyFilter"]"
-               asp-route-cityFilter="@ViewData["CityFilter"]">Causes</a>
-        </th>
-            
+
+            <th>
+                <a asp-action="Summary"
+                   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+                   asp-route-countyFilter="@ViewData["CountyFilter"]"
+                   asp-route-cityFilter="@ViewData["CityFilter"]">Causes</a>
+            </th>
+
         </tr>
     </thead>
     <tbody>
@@ -204,11 +203,11 @@
                         @Html.DisplayFor(modelItem => item.CRASH_SEVERITY_ID)
                     </td>
 
-                    
+
                     <td>
                         <a asp-controller="Home" asp-action="Details" asp-route-id="@item.CRASH_ID">See Details</a>
                     </td>
-                    
+
                 </tr>
 
                 i++;
