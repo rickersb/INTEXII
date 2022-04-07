@@ -8915,7 +8915,7 @@
       "outputPath": "/Users/ben/Desktop/IS/INTEXII/Intex/Intex/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/ben/.config/NuGet/NuGet.Config"
+        "/Users/ben/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -8993,13 +8993,5 @@
         "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.405/RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file /Users/ben/Desktop/IS/INTEXII/Intex/Intex/obj/project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }
