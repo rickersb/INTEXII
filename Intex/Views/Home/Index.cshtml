@@ -4,31 +4,108 @@
 
 
 
-<header class="jumbotron jumbotron-fluid">
-    <div class="container-fluid text-center">
 
-        <h1 class="display-3">Think & Drive</h1>
-        <p class="lead pb-4">Data driven decisions for you.</p>
-        <p><a asp-controller="Home" asp-action="Graphs" class="btn btn-primary btn-lg" role="button">Learn More</a></p>
-    </div>
-</header>
+    <header class="jumbotron jumbotron-fluid stripe">
+        <div class="container-fluid text-center">
+
+            <h1 class="display-3">Think & Drive</h1>
+            <p class="lead pb-4">Data driven decisions for you.</p>
+            <p><a href="#learn-more" class="btn btn-primary btn-lg" role="button">Learn More</a></p>
+        </div>
+    </header>
 
 
-<div class="container">
-    <h2 class="text-center">Our Mission: Lower High Speed Yeets</h2>
+    <div class="container">
+        <h2 class="text-center">Our Mission: Lower High Speed Yeets</h2>
 
-    <div>
+        <div>
+            <br />
+            <p>
+                For years now, people have been getting yeeted from their cars at high speeds. Government agencies have been trying for years to lower
+                driver fatalities in Utah with little success. Our team at Think & Drive has developed special data driven tools to help lawmakers make
+                efficient and affective decisions in driving laws.
+            </p>
+        </div>
         <br />
-        <p>
-            For years now, people have been getting yeeted from their cars at high speeds. Government agencies have been trying for years to lower
-            driver fatalities in Utah with little success. Our team at Think & Drive has developed special data driven tools to help lawmakers make
-            efficient and affective decisions in driving laws.
-        </p>
-    </div>
-    <div>
-        <img style="width: 300px;" src="~/img/crashed_light.jpeg" />
-    </div>
+        <br />
+        <div class="home-pics1">
+            <div class="home-pic1">
+                <img src="~/img/car1.jpeg" />
+            </div>
+            <div class="home-pic1">
+                <img src="~/img/car2.jpeg" />
+            </div>
+            <div class="home-pic1">
+                <img src="~/img/car3.jpeg" />
+            </div>
+        </div>
+        <br />
+        <br />
+        <hr />
+
+        <section class="home-section" id="learn-more">
+            <h2 class="text-right m-5">Analyze Our Graphs</h2>
+            <div class="home-sec-container">
+                <div class="section-pic">
+                    <img src="~/img/crashed_light.jpeg" />
+                </div>
+                <p class="section-text">
+                    Our team at think and drive has created visuals to help lawmakers make decisions when it comes to making our Utah roads
+                    safer. Citizens can publicly view the same data as lawmakers in order to make their own safe driving decisions. Please reach out
+                    to us if you have any ideas about how we can improve our roads. If you come up with your own insights based on our presentation
+                    of the data, reach out to your local representatives to encourage them to implement change.
+                    <br />
+                    <br />
+                    <a asp-controller="Home" asp-action="Graphs" class="btn btn-primary" role="button">Go to Graphs</a>
+                </p>
+            </div>
+
+        </section>
+        <br />
+        <br />
+        <hr />
+
+        <section class="home-section" >
+            <h2 class="text-left m-5">View Public Crash Data</h2>
+            <div class="home-sec-container" style="flex-direction: row-reverse;">
+                <div class="section-pic">
+                    <img src="~/img/car4.jpeg" />
+                </div>
+                <p class="section-text">
+                    On our website you can also view the raw publicly available data that we used to make insights on the graphs page. The database
+                    contains hundreds of thousands of records, and that is why we've added in the feature to search in order to narrow down the records
+                    you're looking for. You can filter by county, city, and narrow down even more by searching for a keyword in the street where the
+                    accident happend. By clicking on "see details" you can view the causes of that particular crash.
+                    <br />
+                    <br />
+                    <a asp-controller="Home" asp-action="Summary" class="btn btn-primary" role="button">Go to Crash Data</a>
+                </p>
+            </div>
+
+        </section>
+        <br />
+        <br />
+        <hr />
+
+        <section class="home-section">
+            <h2 class="text-right m-5">Experiment With Our Predictor</h2>
+            <div class="home-sec-container">
+                <div class="section-pic">
+                    <img src="~/img/car5.jpeg" />
+                </div>
+                <p class="section-text">
+                    The predictor part of our website is the secret sauce to saving lives and lowering yeet counts. We have over 15 algorithmically trained
+                    models designed to provide valuable insights about the data. You can go and experiment with the predictors, to predict the severity of
+                    a potential crash among other things. This will also give you insights to your own driving, so that you can make the best decisions for
+                    you and your family.
+                    <br />
+                    <br />
+                    <a asp-controller="Home" asp-action="Predictor" class="btn btn-primary" role="button">Go to Predictor</a>
+                </p>
+            </div>
+
+        </section>
 
 
-</div>
+    </div>
 
