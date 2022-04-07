@@ -11,8 +11,8 @@ namespace Intex.Models
 {
     public static class IdentitySeedData
     {
-        private const string adminUser = "admin";
-        private const string adminPassword = "Secret123$";
+        //private const string adminUser = "admin";
+        //private const string adminPassword = "Secret123$";
 
         public static async void EnsurePopulated (IApplicationBuilder app)
         {
@@ -29,16 +29,16 @@ namespace Intex.Models
                 .CreateScope().ServiceProvider
                 .GetRequiredService<UserManager<IdentityUser>>();
 
-            IdentityUser user = await userManager.FindByIdAsync(adminUser);
+           // IdentityUser user = await userManager.FindByIdAsync(adminUser);
 
-            if(user == null)
-            {
-                user = new IdentityUser(adminUser);
-                user.Email = "admin@test.com";
-                user.PhoneNumber = "555-1234";
+            //if(user == null)
+            //{
+            //    user = new IdentityUser(adminUser);
+            //    user.Email = "admin@test.com";
+            //    user.PhoneNumber = "555-1234";
 
-                await userManager.CreateAsync(user, adminPassword);
-            }
+            //    await userManager.CreateAsync(user, adminPassword);
+            //}
         }
     }
 }
