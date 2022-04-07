@@ -11,10 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-
-using Microsoft.AspNetCore.Http;
 using Microsoft.ML.OnnxRuntime;
-
 
 namespace Intex
 {
@@ -30,7 +27,6 @@ namespace Intex
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddControllersWithViews();
 
             services.AddDbContext<CrashesDbContext>(options =>
@@ -61,36 +57,15 @@ namespace Intex
             services.AddScoped<ICountyRepository, EFCountyRepository>();
             services.AddScoped<ICityRepository, EFCityRepository>();
 
-            services.Configure<IdentityOptions>(options =>
-            {
-                options.Password.RequireDigit = true;
-                options.Password.RequireLowercase = true;
-                options.Password.RequireNonAlphanumeric = true;
-                options.Password.RequireUppercase = true;
-                options.Password.RequiredLength = 8;
-                options.Password.RequiredUniqueChars = 1;
-            });
+            
 
             services.AddRazorPages();
 
             services.AddServerSideBlazor();
 
-<<<<<<< HEAD
-            services.Configure<CookiePolicyOptions>(options =>
-            {
-                // This lambda determines whether user consent for non-essential 
-                // cookies is needed for a given request.
-                options.CheckConsentNeeded = context => true;
-                // requires using Microsoft.AspNetCore.Http;
-                options.MinimumSameSitePolicy = SameSiteMode.None;
-            });
-
-            services.AddHttpContextAccessor();
-=======
 
             services.AddSingleton<InferenceSession>(
                 new InferenceSession("Model/BestModel.onnx"));
->>>>>>> master
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -106,12 +81,8 @@ namespace Intex
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-
-            
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
-            app.UseCookiePolicy();
 
             app.UseRouting();
 
@@ -140,7 +111,6 @@ namespace Intex
 
             IdentitySeedData.EnsurePopulated(app);
 
-            
 
         }
     }
