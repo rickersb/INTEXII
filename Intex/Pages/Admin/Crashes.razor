@@ -2,6 +2,8 @@
 @page "/admin"
 @inherits OwningComponentBase<ICrashesRepository>
 
+@inject IJSRuntime JsRuntime
+
 
 <table class="table table-striped">
     <thead class="thead-dark">
@@ -53,6 +55,10 @@
 </table>
 
 
+
+
+
+
 @code {
 
     public ICrashesRepository repo => Service;
@@ -74,8 +80,14 @@
 
     public async Task RemoveCrash(Crash c)
     {
-        repo.DeleteCrash(c);
-        await UpdateData();
+
+        bool confirmed = await JsRuntime.InvokeAsync<bool>("confirm", "You cannot undo this action. Would you like to proceed?");
+        if (confirmed)
+        {
+            repo.DeleteCrash(c);
+            await UpdateData();
+        }
+
     }
 
 }

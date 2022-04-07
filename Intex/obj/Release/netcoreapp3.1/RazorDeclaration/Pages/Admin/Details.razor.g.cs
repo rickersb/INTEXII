@@ -12,42 +12,56 @@ namespace Intex.Pages.Admin
     using System.Linq;
     using System.Threading.Tasks;
 #nullable restore
-#line 1 "C:\Users\ehorl\source\repos\INTEXII\Intex\Pages\Admin\_Imports.razor"
+#line 1 "C:\Users\ehorl\source\repos\INTEXII\master\Intex\Pages\Admin\_Imports.razor"
 using Microsoft.AspNetCore.Components;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\ehorl\source\repos\INTEXII\Intex\Pages\Admin\_Imports.razor"
+#line 2 "C:\Users\ehorl\source\repos\INTEXII\master\Intex\Pages\Admin\_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\ehorl\source\repos\INTEXII\Intex\Pages\Admin\_Imports.razor"
+#line 3 "C:\Users\ehorl\source\repos\INTEXII\master\Intex\Pages\Admin\_Imports.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Users\ehorl\source\repos\INTEXII\Intex\Pages\Admin\_Imports.razor"
+#line 4 "C:\Users\ehorl\source\repos\INTEXII\master\Intex\Pages\Admin\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "C:\Users\ehorl\source\repos\INTEXII\Intex\Pages\Admin\_Imports.razor"
+#line 5 "C:\Users\ehorl\source\repos\INTEXII\master\Intex\Pages\Admin\_Imports.razor"
+using Microsoft.JSInterop;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 6 "C:\Users\ehorl\source\repos\INTEXII\master\Intex\Pages\Admin\_Imports.razor"
+using Microsoft.AspNetCore.Http;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 8 "C:\Users\ehorl\source\repos\INTEXII\master\Intex\Pages\Admin\_Imports.razor"
 using Microsoft.EntityFrameworkCore;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "C:\Users\ehorl\source\repos\INTEXII\Intex\Pages\Admin\_Imports.razor"
+#line 10 "C:\Users\ehorl\source\repos\INTEXII\master\Intex\Pages\Admin\_Imports.razor"
 using Intex.Models;
 
 #line default
@@ -62,7 +76,7 @@ using Intex.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 43 "C:\Users\ehorl\source\repos\INTEXII\Intex\Pages\Admin\Details.razor"
+#line 43 "C:\Users\ehorl\source\repos\INTEXII\master\Intex\Pages\Admin\Details.razor"
        
     [Inject]
     public ICrashesRepository repo { get; set; }
