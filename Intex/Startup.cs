@@ -11,7 +11,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+
 using Microsoft.AspNetCore.Http;
+using Microsoft.ML.OnnxRuntime;
+
 
 namespace Intex
 {
@@ -72,6 +75,7 @@ namespace Intex
 
             services.AddServerSideBlazor();
 
+<<<<<<< HEAD
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential 
@@ -82,6 +86,11 @@ namespace Intex
             });
 
             services.AddHttpContextAccessor();
+=======
+
+            services.AddSingleton<InferenceSession>(
+                new InferenceSession("Model/BestModel.onnx"));
+>>>>>>> master
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
