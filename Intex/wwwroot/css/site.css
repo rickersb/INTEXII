@@ -26,8 +26,9 @@ a {
   border-color: #1861ac;
 }
 
-
 /*---------home page-------------*/
+
+
 header.jumbotron.jumbotron-fluid {
     background: rgb(167,167,167);
     background: linear-gradient(0deg, rgba(167,167,167,1) 0%, rgba(0,212,255,0) 100%);
