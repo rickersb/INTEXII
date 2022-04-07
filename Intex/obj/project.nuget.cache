@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "IxkPq8l5iJdzyfYtrt7n+v7sQ+O3iEWB2XQZZGPHjPFLvA9n0HrnBdL++PId/N+xTJ0ZOvkZkbK1dlF1D29mPg==",
+  "dgSpecHash": "195U7p39J9mXScHkMTUmWhrLMp3QGLUXFyqaDY3Y+hoEX3ee09Af/e50jUruGpedxFk45XnfCyl2KLWmT+7KYA==",
   "success": true,
   "projectFilePath": "/Users/ben/Desktop/IS/INTEXII/Intex/Intex/Intex.csproj",
   "expectedPackageFiles": [
@@ -175,12 +175,5 @@
     "/Users/ben/.nuget/packages/system.xml.xmldocument/4.3.0/system.xml.xmldocument.4.3.0.nupkg.sha512",
     "/Users/ben/.nuget/packages/system.xml.xmlserializer/4.3.0/system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file /Users/ben/Desktop/IS/INTEXII/Intex/Intex/obj/project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }
