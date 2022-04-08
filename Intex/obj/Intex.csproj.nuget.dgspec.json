@@ -1,23 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tstee\\source\\repos\\INTEXII\\Intex\\Intex.csproj": {}
+    "C:\\Users\\Optiplex 790\\Desktop\\Intex\\INTEXII\\Intex\\Intex.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tstee\\source\\repos\\INTEXII\\Intex\\Intex.csproj": {
+    "C:\\Users\\Optiplex 790\\Desktop\\Intex\\INTEXII\\Intex\\Intex.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tstee\\source\\repos\\INTEXII\\Intex\\Intex.csproj",
+        "projectUniqueName": "C:\\Users\\Optiplex 790\\Desktop\\Intex\\INTEXII\\Intex\\Intex.csproj",
         "projectName": "Intex",
-        "projectPath": "C:\\Users\\tstee\\source\\repos\\INTEXII\\Intex\\Intex.csproj",
-        "packagesPath": "C:\\Users\\tstee\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tstee\\source\\repos\\INTEXII\\Intex\\obj\\",
+        "projectPath": "C:\\Users\\Optiplex 790\\Desktop\\Intex\\INTEXII\\Intex\\Intex.csproj",
+        "packagesPath": "C:\\Users\\Optiplex 790\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Optiplex 790\\Desktop\\Intex\\INTEXII\\Intex\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-
-          "C:\\Users\\tstee\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Optiplex 790\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -49,6 +47,12 @@
             "Microsoft.AspNetCore.Identity.UI": {
               "target": "Package",
               "version": "[3.1.23, )"
+            },
+            "Microsoft.CodeAnalysis.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.9.4, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
@@ -97,7 +101,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.406\\RuntimeIdentifierGraph.json"
         }
       }
     }

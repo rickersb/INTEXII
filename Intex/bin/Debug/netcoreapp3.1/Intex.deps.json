@@ -33,6 +33,7 @@
         "dependencies": {
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.23",
           "Microsoft.AspNetCore.Identity.UI": "3.1.23",
+          "Microsoft.CodeAnalysis.Analyzers": "2.9.4",
           "Microsoft.EntityFrameworkCore.Design": "3.1.23",
           "Microsoft.EntityFrameworkCore.SqlServer": "3.1.23",
           "Microsoft.EntityFrameworkCore.Tools": "3.1.23",
@@ -1605,7 +1606,7 @@
           "runtimes/win-arm64/native/sni.dll": {
             "rid": "win-arm64",
             "assetType": "native",
-            "fileVersion": "0.0.0.0"
+            "fileVersion": "4.6.25512.1"
           }
         }
       },
@@ -1614,7 +1615,7 @@
           "runtimes/win-x64/native/sni.dll": {
             "rid": "win-x64",
             "assetType": "native",
-            "fileVersion": "0.0.0.0"
+            "fileVersion": "4.6.25512.1"
           }
         }
       },
@@ -1623,7 +1624,7 @@
           "runtimes/win-x86/native/sni.dll": {
             "rid": "win-x86",
             "assetType": "native",
-            "fileVersion": "0.0.0.0"
+            "fileVersion": "4.6.25512.1"
           }
         }
       },

@@ -1,8 +1,8 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "/Users/ben/.dotnet/store/|arch|/|tfm|",
-      "/Users/ben/.nuget/packages"
+      "C:\\Users\\Optiplex 790\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Optiplex 790\\.nuget\\packages"
     ]
   }
 }
