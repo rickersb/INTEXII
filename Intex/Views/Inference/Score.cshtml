@@ -1,143 +1,181 @@
 ﻿@{
     ViewData["Title"] = "Predictions";
 }
-
 @model CrashModel
-
-@*‘WORK_ZONE_RELATED’, ‘PEDESTRIAN_INVOLVED’,
-    ‘BICYCLIST_INVOLVED’, ‘MOTORCYCLE_INVOLVED’, ‘IMPROPER_RESTRAINT’,
-    ‘UNRESTRAINED’, ‘DUI’, ‘INTERSECTION_RELATED’, ‘WILD_ANIMAL_RELATED’,
-    ‘DOMESTIC_ANIMAL_RELATED’, ‘OVERTURN_ROLLOVER’,
-    ‘COMMERCIAL_MOTOR_VEH_INVOLVED’, ‘TEENAGE_DRIVER_INVOLVED’,
-    ‘OLDER_DRIVER_INVOLVED’, ‘NIGHT_DARK_CONDITION’, ‘SINGLE_VEHICLE’,
-    ‘DISTRACTED_DRIVING’, ‘DROWSY_DRIVING’, ’ROADWAY_DEPARTURE*@
-
-<h1>Crash Severity Predictor <div style="border-radius:5px;" class="card float-right m-2 p-2"><h6 p-2">Key:<br /> 1 = Minor Damages <br />5 = Resulted in Death</h6></div></h1>
-
+<h1>Crash Severity Predictor <div style="border-radius:5px;" class="card float-right m-2 p-2"><h6 p-2">Key:<br /> 1 = No Injury <br />2 = Possible Injury <br />3 = Suspected Minor Injury <br />4 = Suspected Serious Injury <br />5 = Fatal</h6></div></h1>
 <form method="post" style="border-radius:10px;" class="card text-center container shadow p-3 mb-5 bg-white rounded">
-    @*<div asp-validation-summary="All"></div>*@
     <h3>Select all that apply</h3>
     <h3>Crash Severity Score: @Math.Round(@ViewBag.Prediction.PredictedValue)</h3>
     <div class="row">
-        <div style="border-radius:15px;" class="col align-bottom bg-dark bg-gradient p-3 m-2 text-white">
+        <input asp-for="CITY_ID" type="hidden" value="323" />
+        <input asp-for="COUNTY_ID" type="hidden" value="18" />
+        <input asp-for="MILEPOINT" type="hidden" value="4" />
+        <div class="roundcorners col align-bottom bg-dark bg-gradient p-3 m-2 text-white">
             <label asp-for="HOUR"><b> Hour: </b></label><br />
-            <input asp-for="HOUR" type="number" />
+            <select asp-for="HOUR">
+                <option value="0">12:00 AM</option>
+                <option value="1">1:00 AM</option>
+                <option value="2">2:00 AM</option>
+                <option value="3">3:00 AM</option>
+                <option value="4">4:00 AM</option>
+                <option value="5">5:00 AM</option>
+                <option value="6">6:00 AM</option>
+                <option value="7">7:00 AM</option>
+                <option value="8">8:00 AM</option>
+                <option value="9">9:00 AM</option>
+                <option value="10">10:00 AM</option>
+                <option value="11">11:00 AM</option>
+                <option value="12">12:00 PM</option>
+                <option value="13">1:00 PM</option>
+                <option value="14">2:00 PM</option>
+                <option value="15">3:00 PM</option>
+                <option value="16">4:00 PM</option>
+                <option value="17">5:00 PM</option>
+                <option value="18">6:00 PM</option>
+                <option value="19">7:00 PM</option>
+                <option value="20">8:00 PM</option>
+                <option value="21">9:00 PM</option>
+                <option value="22">10:00 PM</option>
+                <option value="23">11:00 PM</option>
+            </select>
         </div>
-        <div style="border-radius:15px;" class="col align-bottom bg-dark bg-gradient p-3 m-2 text-white">
+        <div class="roundcorners col align-bottom bg-dark bg-gradient p-3 m-2 text-white">
             <label asp-for="WEEKDAY"><b> Weekday: </b></label><br />
-            <input asp-for="WEEKDAY" type="number" />
+            <select asp-for="WEEKDAY">
+                <option value="0">Sunday</option>
+                <option value="1">Monday</option>
+                <option value="2">Tuedsay</option>
+                <option value="3">Wednesday</option>
+                <option value="4">Thursday</option>
+                <option value="5">Friday</option>
+                <option value="6">Saturday</option>
+            </select>
         </div>
-        <div style="border-radius:15px;" class="col align-bottom bg-dark bg-gradient p-3 m-2 text-white">
+        <div class="roundcorners col align-bottom bg-dark bg-gradient p-3 m-2 text-white">
             <label asp-for="MONTH"><b> Month:</b></label><br />
-            <input asp-for="MONTH" type="number" />
-        </div>
-        <div style="border-radius:15px;" class="col align-bottom bg-dark bg-gradient p-3 m-2 text-white">
-            <label asp-for="MILEPOINT"><b> Milepoint:</b></label><br />
-            <input asp-for="MILEPOINT" type="number" />
+            <select asp-for="MONTH">
+                <option value="1.0">January</option>
+                <option value="2">February</option>
+                <option value="3">March</option>
+                <option value="4">April</option>
+                <option value="5">May</option>
+                <option value="6">June</option>
+                <option value="7">July</option>
+                <option value="8">August</option>
+                <option value="9">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
+            </select>
         </div>
     </div>
     <div class="row">
-        <div style="border-radius:15px;" class="col align-bottom bg-dark bg-gradient p-3 m-2 text-white">
-            <label asp-for="CITY_ID"><b> City_ID:</b></label><br />
-            <input asp-for="CITY_ID" type="number" />
-        </div>
-        <div style="border-radius:15px;" class="col align-bottom bg-dark bg-gradient p-3 m-2 text-white">
-            <label asp-for="COUNTY_ID"><b> County_ID:</b></label><br />
-            <input asp-for="COUNTY_ID" type="number" />
-        </div>
-        <div style="border-radius:15px;" class="col align-bottom bg-dark bg-gradient p-3 m-2 text-white">
+        <div class="roundcorners col align-bottom bg-dark bg-gradient p-3 m-2 text-white">
             <label asp-for="WORK_ZONE_RELATED"><b> Work Zone Related</b></label><br />
-            <input asp-for="WORK_ZONE_RELATED" type="number" />
+            <input asp-for="WORK_ZONE_RELATED" name="WORK_ZONE_RELATED" type="radio" class="d-none" value="0.0" checked />
+            <input asp-for="WORK_ZONE_RELATED" name="WORK_ZONE_RELATED" type="radio" value="1.0" />
         </div>
-        <div style="border-radius:15px;" class="col align-bottom bg-dark bg-gradient p-3 m-2 text-white">
+        <div class="roundcorners col align-bottom bg-dark bg-gradient p-3 m-2 text-white">
             <label asp-for="PEDESTRIAN_INVOLVED"><b> Pedestrian Involved</b></label><br />
-            <input asp-for="PEDESTRIAN_INVOLVED" type="number" />
+            <input asp-for="PEDESTRIAN_INVOLVED" name="PEDESTRIAN_INVOLVED" type="radio" class="d-none" value="0.0" checked />
+            <input asp-for="PEDESTRIAN_INVOLVED" name="PEDESTRIAN_INVOLVED" type="radio" value="1.0" />
         </div>
-    </div>
-    <div class="row">
-
-        <div style="border-radius:15px;" class="col align-bottom bg-dark bg-gradient  p-3 m-2 text-white">
+        <div class="roundcorners col align-bottom bg-dark bg-gradient  p-3 m-2 text-white">
             <label asp-for="BICYCLIST_INVOLVED"><b> Bicyclist Involved</b></label><br />
-            <input asp-for="BICYCLIST_INVOLVED" type="number" />
+            <input asp-for="BICYCLIST_INVOLVED" name="BICYCLIST_INVOLVED" type="radio" class="d-none" value="0.0" checked />
+            <input asp-for="BICYCLIST_INVOLVED" name="BICYCLIST_INVOLVED" type="radio" value="1.0" />
         </div>
-        <div style="border-radius:15px;" class="col align-bottom bg-dark bg-gradient  p-3 m-2 text-white">
+        <div class="roundcorners col align-bottom bg-dark bg-gradient  p-3 m-2 text-white">
             <label asp-for="MOTORCYCLE_INVOLVED"><b> Motorcycle Involved</b></label><br />
-            <input asp-for="MOTORCYCLE_INVOLVED" type="number" />
+            <input asp-for="MOTORCYCLE_INVOLVED" name="MOTORCYCLE_INVOLVED" type="radio" class="d-none" value="0.0" checked />
+            <input asp-for="MOTORCYCLE_INVOLVED" name="MOTORCYCLE_INVOLVED" type="radio" value="1.0" />
         </div>
-        <div style="border-radius:15px;" class="col align-bottom bg-dark bg-gradient  p-3 m-2 text-white">
+    </div>
+    <div class="row">
+        <div class="roundcorners col align-bottom bg-dark bg-gradient  p-3 m-2 text-white">
             <label asp-for="IMPROPER_RESTRAINT"><b> Improper Restraints</b></label><br />
-            <input asp-for="IMPROPER_RESTRAINT" type="number" />
+            <input asp-for="IMPROPER_RESTRAINT" name="IMPROPER_RESTRAINT" type="radio" class="d-none" value="0.0" checked />
+            <input asp-for="IMPROPER_RESTRAINT" name="IMPROPER_RESTRAINT" type="radio" value="1.0" />
         </div>
-        <div style="border-radius:15px;" class="col align-bottom bg-dark bg-gradient  p-3 m-2 text-white">
+        <div class="roundcorners col align-bottom bg-dark bg-gradient  p-3 m-2 text-white">
             <label asp-for="UNRESTRAINED"><b> Unrestrained</b></label><br />
-            <input asp-for="UNRESTRAINED" type="number" />
+            <input asp-for="UNRESTRAINED" name="UNRESTRAINED" type="radio" class="d-none" value="0.0" checked />
+            <input asp-for="UNRESTRAINED" name="UNRESTRAINED" type="radio" value="1.0" />
         </div>
-    </div>
-    <div class="row">
-
-        <div style="border-radius:15px;" class="col align-bottom bg-dark bg-gradient  p-3 m-2 text-white">
+        <div class="roundcorners col align-bottom bg-dark bg-gradient  p-3 m-2 text-white">
             <label asp-for="DUI"><b> DUI</b></label><br />
-            <input asp-for="DUI" type="number" />
+            <input asp-for="DUI" name="DUI" type="radio" class="d-none" value="0.0" checked />
+            <input asp-for="DUI" name="DUI" type="radio" value="1.0" />
         </div>
-        <div style="border-radius:15px;" class="col align-bottom bg-dark bg-gradient  p-3 m-2 text-white">
+        <div class="roundcorners col align-bottom bg-dark bg-gradient  p-3 m-2 text-white">
             <label asp-for="INTERSECTION_RELATED"><b> Intersection Related</b></label><br />
-            <input asp-for="INTERSECTION_RELATED" type="number" />
+            <input asp-for="INTERSECTION_RELATED" name="INTERSECTION_RELATED" type="radio" class="d-none" value="0.0" checked />
+            <input asp-for="INTERSECTION_RELATED" name="INTERSECTION_RELATED" type="radio" value="1.0" />
         </div>
-        <div style="border-radius:15px;" class="col align-bottom bg-dark bg-gradient  p-3 m-2 text-white">
+    </div>
+    <div class="row">
+        <div class="roundcorners col align-bottom bg-dark bg-gradient  p-3 m-2 text-white">
             <label asp-for="WILD_ANIMAL_RELATED"><b> Wild Animal Involved</b></label><br />
-            <input asp-for="WILD_ANIMAL_RELATED" type="number" />
+            <input asp-for="WILD_ANIMAL_RELATED" name="WILD_ANIMAL_RELATED" type="radio" class="d-none" value="0.0" checked />
+            <input asp-for="WILD_ANIMAL_RELATED" name="WILD_ANIMAL_RELATED" type="radio" value="1.0" />
         </div>
-        <div style="border-radius:15px;" class="col align-bottom bg-dark bg-gradient  p-3 m-2 text-white">
+        <div class="roundcorners col align-bottom bg-dark bg-gradient  p-3 m-2 text-white">
             <label asp-for="DOMESTIC_ANIMAL_RELATED"><b> Domestic Animal Related</b></label><br />
-            <input asp-for="DOMESTIC_ANIMAL_RELATED" type="number" />
+            <input asp-for="DOMESTIC_ANIMAL_RELATED" name="DOMESTIC_ANIMAL_RELATED" type="radio" class="d-none" value="0.0" checked />
+            <input asp-for="DOMESTIC_ANIMAL_RELATED" name="DOMESTIC_ANIMAL_RELATED" type="radio" value="1.0" />
         </div>
-    </div>
-    <div class="row">
-
-        <div style="border-radius:15px;" class="col align-bottom bg-dark bg-gradient  p-3 m-2 text-white">
+        <div class="roundcorners col align-bottom bg-dark bg-gradient  p-3 m-2 text-white">
             <label asp-for="OVERTURN_ROLLOVER"><b> Overturn Rollover</b></label><br />
-            <input asp-for="OVERTURN_ROLLOVER" type="number" />
+            <input asp-for="OVERTURN_ROLLOVER" name="OVERTURN_ROLLOVER" type="radio" class="d-none" value="0.0" checked />
+            <input asp-for="OVERTURN_ROLLOVER" name="OVERTURN_ROLLOVER" type="radio" value="1.0" />
         </div>
-        <div style="border-radius:15px;" class="col align-bottom bg-dark bg-gradient  p-3 m-2 text-white">
+        <div class="roundcorners col align-bottom bg-dark bg-gradient  p-3 m-2 text-white">
             <label asp-for="COMMERCIAL_MOTOR_VEH_INVOLVED"><b> Commercial Motor Vehical Involved</b></label><br />
-            <input asp-for="COMMERCIAL_MOTOR_VEH_INVOLVED" type="number" />
-        </div>
-        <div style="border-radius:15px;" class="col align-bottom bg-dark bg-gradient  p-3 m-2 text-white">
-            <label asp-for="TEENAGE_DRIVER_INVOLVED"><b> Teenage Driver Involved</b></label><br />
-            <input asp-for="TEENAGE_DRIVER_INVOLVED" type="number" />
-        </div>
-        <div style="border-radius:15px;" class="col align-bottom bg-dark bg-gradient  p-3 m-2 text-white">
-            <label asp-for="OLDER_DRIVER_INVOLVED"><b> Older Driver Involved</b></label><br />
-            <input asp-for="OLDER_DRIVER_INVOLVED" type="number" />
+            <input asp-for="COMMERCIAL_MOTOR_VEH_INVOLVED" name="COMMERCIAL_MOTOR_VEH_INVOLVED" type="radio" class="d-none" value="0.0" checked />
+            <input asp-for="COMMERCIAL_MOTOR_VEH_INVOLVED" name="COMMERCIAL_MOTOR_VEH_INVOLVED" type="radio" value="1.0" />
         </div>
     </div>
-    @*<div class="row">
-
-
-        </div>*@
     <div class="row">
-        <div style="border-radius:15px;" class="col align-bottom bg-dark bg-gradient  p-3 m-2 text-white">
+        <div class="roundcorners col align-bottom bg-dark bg-gradient  p-3 m-2 text-white">
+            <label asp-for="TEENAGE_DRIVER_INVOLVED"><b> Teenage Driver Involved</b></label><br />
+            <input asp-for="TEENAGE_DRIVER_INVOLVED" name="TEENAGE_DRIVER_INVOLVED" type="radio" class="d-none" value="0.0" checked />
+            <input asp-for="TEENAGE_DRIVER_INVOLVED" name="TEENAGE_DRIVER_INVOLVED" type="radio" value="1.0" />
+        </div>
+        <div class="roundcorners col align-bottom bg-dark bg-gradient  p-3 m-2 text-white">
+            <label asp-for="OLDER_DRIVER_INVOLVED"><b> Older Driver Involved</b></label><br />
+            <input asp-for="OLDER_DRIVER_INVOLVED" name="OLDER_DRIVER_INVOLVED" type="radio" class="d-none" value="0.0" checked />
+            <input asp-for="OLDER_DRIVER_INVOLVED" name="OLDER_DRIVER_INVOLVED" type="radio" value="1.0" />
+        </div>
+        <div class="roundcorners col align-bottom bg-dark bg-gradient  p-3 m-2 text-white">
             <label asp-for="SINGLE_VEHICLE"><b> Single Vehical Involved</b></label><br />
-            <input asp-for="SINGLE_VEHICLE" type="number" />
+            <input asp-for="SINGLE_VEHICLE" name="SINGLE_VEHICLE" type="radio" class="d-none" value="0.0" checked />
+            <input asp-for="SINGLE_VEHICLE" name="SINGLE_VEHICLE" type="radio" value="1.0" />
         </div>
-        <div style="border-radius:15px;" class="col align-bottom bg-dark bg-gradient  p-3 m-2 text-white">
+        <div class="roundcorners col align-bottom bg-dark bg-gradient  p-3 m-2 text-white">
             <label asp-for="DISTRACTED_DRIVING"><b> Distracted Driving</b></label><br />
-            <input asp-for="DISTRACTED_DRIVING" type="number" />
+            <input asp-for="DISTRACTED_DRIVING" name="DISTRACTED_DRIVING" type="radio" class="d-none" value="0.0" checked />
+            <input asp-for="DISTRACTED_DRIVING" name="DISTRACTED_DRIVING" type="radio" value="1.0" />
         </div>
-        <div style="border-radius:15px;" class="col align-bottom bg-dark bg-gradient  p-3 m-2 text-white">
-            <label asp-for="DROWSY_DRIVING"><b> Drowsy Driving</b></label><br />
-            <input asp-for="DROWSY_DRIVING" type="number" />
-        </div>
-        <div style="border-radius:15px;" class="col align-bottom bg-dark bg-gradient  p-3 m-2 text-white">
-            <label asp-for="ROADWAY_DEPARTURE"><b> Roadway Departure</b></label><br />
-            <input asp-for="ROADWAY_DEPARTURE" type="number" />
-        </div>
-        <div style="border-radius:15px;" class="col align-bottom bg-dark bg-gradient  p-3 m-2 text-white">
-            <label asp-for="NIGHT_DARK_CONDITION"><b> Night/Dark Time</b></label><br />
-            <input asp-for="NIGHT_DARK_CONDITION" type="number" />
-        </div>
-        @*<div style="border-radius:15px;" class="col align-bottom p-3 m-2">
-            </div>*@
     </div>
-    <button class="btn btn-success" type="submit">Submit</button>
+    <div class="row">
+        <div class="roundcorners col align-bottom bg-dark bg-gradient  p-3 m-2 text-white">
+            <label asp-for="DROWSY_DRIVING"><b> Drowsy Driving</b></label><br />
+            <input asp-for="DROWSY_DRIVING" name="DROWSY_DRIVING" type="radio" class="d-none" value="0.0" checked />
+            <input asp-for="DROWSY_DRIVING" name="DROWSY_DRIVING" type="radio" value="1.0" />
+        </div>
+        <div class="roundcorners col align-bottom bg-dark bg-gradient  p-3 m-2 text-white">
+            <label asp-for="ROADWAY_DEPARTURE"><b> Roadway Departure</b></label><br />
+            <input asp-for="ROADWAY_DEPARTURE" name="ROADWAY_DEPARTURE" type="radio" class="d-none" value="0.0" checked />
+            <input asp-for="ROADWAY_DEPARTURE" name="ROADWAY_DEPARTURE" type="radio" value="1.0" />
+        </div>
+        <div class="roundcorners col align-bottom bg-dark bg-gradient  p-3 m-2 text-white">
+            <label asp-for="NIGHT_DARK_CONDITION"><b> Night/Dark Time</b></label><br />
+            <input asp-for="NIGHT_DARK_CONDITION" name="NIGHT_DARK_CONDITION" type="radio" class="d-none" value="0.0" checked />
+            <input asp-for="NIGHT_DARK_CONDITION" name="NIGHT_DARK_CONDITION" type="radio" value="1.0" />
+        </div>
+        <div class="roundcorners col align-bottom p-3 m-2">
+        </div>
+    </div>
+    <button class="roundcorners btn btn-success" type="submit">Submit</button>
 </form>
+<h2>To learn more about how we got these results see <a href="https://github.com/EVELYN-RYAN/UTCrashesML">UtahCrashes.</a></h2>

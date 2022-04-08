@@ -2,6 +2,7 @@
 @page "/admin"
 @inherits OwningComponentBase<ICrashesRepository>
 
+@inject IJSRuntime JsRuntime
 
 <table class="table table-striped">
     <thead class="thead-dark">
@@ -35,7 +36,7 @@
                         <NavLink class="text-center" href="@GetEditUrl(c.CRASH_ID)"><img class="rounded mx-auto d-block" src="https://img.icons8.com/ios-glyphs/30/000000/edit--v4.png"></NavLink>
                     </td>
                     <td>
-                        <button style="border:none;"class="text-center" @onclick="@(x => RemoveCrash(c))"><img class="rounded mx-auto d-block" src="https://img.icons8.com/material-rounded/30/000000/filled-trash.png" /></button>
+                        <button style="border:none;" class="text-center" @onclick="@(x => RemoveCrash(c))"><img class="rounded mx-auto d-block" src="https://img.icons8.com/material-rounded/30/000000/filled-trash.png" /></button>
                     </td>
 
                 </tr>
@@ -74,8 +75,12 @@
 
     public async Task RemoveCrash(Crash c)
     {
-        repo.DeleteCrash(c);
-        await UpdateData();
+        bool confirmed = await JsRuntime.InvokeAsync<bool>("confirm", "You cannot undo this action. Would you like to proceed?");
+        if (confirmed)
+        {
+            repo.DeleteCrash(c);
+            await UpdateData();
+        }
     }
 
 }

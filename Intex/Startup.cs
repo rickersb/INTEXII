@@ -12,6 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.ML.OnnxRuntime;
+using Microsoft.AspNetCore.Http;
 
 namespace Intex
 {
@@ -57,7 +58,15 @@ namespace Intex
             services.AddScoped<ICountyRepository, EFCountyRepository>();
             services.AddScoped<ICityRepository, EFCityRepository>();
 
-            
+            services.Configure<IdentityOptions>(options =>
+            {
+                options.Password.RequireDigit = true;
+                options.Password.RequireLowercase = true;
+                options.Password.RequireNonAlphanumeric = true;
+                options.Password.RequireUppercase = true;
+                options.Password.RequiredLength = 8;
+                options.Password.RequiredUniqueChars = 1;
+            });
 
             services.AddRazorPages();
 
@@ -65,7 +74,18 @@ namespace Intex
 
 
             services.AddSingleton<InferenceSession>(
-                new InferenceSession("Model/BestModel.onnx"));
+                new InferenceSession("wwwroot/BestModel.onnx"));
+
+            services.Configure<CookiePolicyOptions>(options =>
+            {
+                // This lambda determines whether user consent for non-essential
+                // cookies is needed for a given request.
+                options.CheckConsentNeeded = context => true;
+                // requires using Microsoft.AspNetCore.Http;
+                options.MinimumSameSitePolicy = SameSiteMode.None;
+            });
+
+            services.AddHttpContextAccessor();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -83,11 +103,13 @@ namespace Intex
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseCookiePolicy();
             app.UseRouting();
 
             app.UseAuthentication();
             app.UseAuthorization();
+
+            
 
             app.UseEndpoints(endpoints =>
             {
@@ -109,7 +131,7 @@ namespace Intex
                     defaults: new { Controller = "Home", action = "Summary", pageNum = 1 });
             });
 
-            IdentitySeedData.EnsurePopulated(app);
+            //IdentitySeedData.EnsurePopulated(app);
 
 
         }
